@@ -51,7 +51,9 @@ class AuthService {
         final AuthCredential credential 
         = FacebookAuthProvider.credential(fbTocken!.token);
         final result = await _auth.signInWithCredential(credential);
-        return result.user;
+        print (result.credential!.providerId);
+
+        break;
       case FacebookLoginStatus.cancel:
         print('canceled');
         break;

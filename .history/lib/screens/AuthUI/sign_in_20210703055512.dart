@@ -73,9 +73,16 @@ class SignIn extends StatelessWidget {
                           ),
                           DataEntry(loginTextFieldLables: loginTextFieldLables),
                           Container(
-                                alignment: Alignment.bottomRight,
-                                height: 0.030134 * _height,
-                          ),
+                              alignment: Alignment.bottomRight,
+                              height: 0.030134 * _height,
+                              child: Text(
+                                'Forget password ?',
+                                textAlign: TextAlign.right,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .subtitle2
+                                    ?.copyWith(fontSize: 14),
+                              )),
                           Builder(
                             builder: (context) => DashedButton(
                               ontap: () async {
@@ -96,8 +103,8 @@ class SignIn extends StatelessWidget {
                                   ontap: () async {
                                     try {
                                       User user =
-                                          await _auth.signInUsingFaceBook();
-                                      print(user.uid);
+                                          await _auth.signInUsingGoogle();
+                                      print(user.uid); 
                                       Navigator.pushReplacement(
                                         context,
                                         OnBoardingPageRoute(
@@ -111,6 +118,7 @@ class SignIn extends StatelessWidget {
                                         content: Text(e.message.toString()),
                                       ));
                                     }
+
                                   },
                                 ),
                                 OtherAuthMethod(

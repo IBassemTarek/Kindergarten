@@ -51,14 +51,18 @@ class AuthService {
         final AuthCredential credential 
         = FacebookAuthProvider.credential(fbTocken!.token);
         final result = await _auth.signInWithCredential(credential);
-        return result.user;
+        print (result.credential!.token);
+
+        break;
       case FacebookLoginStatus.cancel:
         print('canceled');
         break;
       case FacebookLoginStatus.error:
         print('error');
         break;
-    } 
+    }
+    var authResult = await _auth.signInWithCredential(credential);
+    return authResult.user;
   }
 
   Future signOut() async {

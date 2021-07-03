@@ -73,9 +73,16 @@ class SignIn extends StatelessWidget {
                           ),
                           DataEntry(loginTextFieldLables: loginTextFieldLables),
                           Container(
-                                alignment: Alignment.bottomRight,
-                                height: 0.030134 * _height,
-                          ),
+                              alignment: Alignment.bottomRight,
+                              height: 0.030134 * _height,
+                              child: Text(
+                                'Forget password ?',
+                                textAlign: TextAlign.right,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .subtitle2
+                                    ?.copyWith(fontSize: 14),
+                              )),
                           Builder(
                             builder: (context) => DashedButton(
                               ontap: () async {
@@ -94,23 +101,14 @@ class SignIn extends StatelessWidget {
                                 OtherAuthMethod(
                                   imageURL: "assets/images/signin/fb.svg",
                                   ontap: () async {
-                                    try {
-                                      User user =
-                                          await _auth.signInUsingFaceBook();
-                                      print(user.uid);
-                                      Navigator.pushReplacement(
-                                        context,
-                                        OnBoardingPageRoute(
-                                            duration: 1000,
-                                            widget: Wrapper(),
-                                            myAnimation: Curves.elasticInOut),
-                                      );
-                                    } on FirebaseAuthException catch (e) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(SnackBar(
-                                        content: Text(e.message.toString()),
-                                      ));
-                                    }
+                                    User user = await _auth.signInUsingFaceBook();
+                                    print(user.uid);
+                                    // final _authData = Provider.of<AuthData>(
+                                    //     context,
+                                    //     listen: false);
+                                    // print(_authData.email);
+                                    // print(_authData.password);
+                                    // await IsFirstRun.reset();
                                   },
                                 ),
                                 OtherAuthMethod(

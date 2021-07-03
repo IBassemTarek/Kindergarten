@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:kindergarten/models/AuthData/auth_data.dart';
 import 'package:kindergarten/models/AuthVisible/auth_visible.dart';
-import 'package:kindergarten/models/modalprogrsshub.dart';
 import 'package:kindergarten/screens/AuthUI/sign_in.dart';
 import 'package:kindergarten/screens/shared/rounded_rect_border.dart';
 import 'package:page_indicator/page_indicator.dart';

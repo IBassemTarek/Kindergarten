@@ -72,10 +72,7 @@ class SignIn extends StatelessWidget {
                                 "Fill your Email and Password or continue with social media",
                           ),
                           DataEntry(loginTextFieldLables: loginTextFieldLables),
-                          Container(
-                                alignment: Alignment.bottomRight,
-                                height: 0.030134 * _height,
-                          ),
+                         
                           Builder(
                             builder: (context) => DashedButton(
                               ontap: () async {

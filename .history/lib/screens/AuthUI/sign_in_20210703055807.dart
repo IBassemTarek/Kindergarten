@@ -72,9 +72,26 @@ class SignIn extends StatelessWidget {
                                 "Fill your Email and Password or continue with social media",
                           ),
                           DataEntry(loginTextFieldLables: loginTextFieldLables),
-                          Container(
+                          InkWell(
+                            onTap: ()async{
+                                  final _authData = Provider.of<AuthData>(
+                                        context,
+                                        listen: false);
+                                    print(_authData.email);
+                                    print(_authData.password);
+                                    await IsFirstRun.reset();
+                            },
+                            child: Container(
                                 alignment: Alignment.bottomRight,
                                 height: 0.030134 * _height,
+                                child: Text(
+                                  'Forget password ?',
+                                  textAlign: TextAlign.right,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .subtitle2
+                                      ?.copyWith(fontSize: 14),
+                                )),
                           ),
                           Builder(
                             builder: (context) => DashedButton(
