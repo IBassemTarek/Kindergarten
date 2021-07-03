@@ -18,7 +18,7 @@ class Wrapper extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator();
         }
-          else if (snapshot.connectionState == ConnectionState.active) {
+          if (snapshot.connectionState == ConnectionState.active) {
             User? user = snapshot.data;
             if (user == null) {
               return MultiProvider(

@@ -4,6 +4,8 @@ import 'package:kindergarten/services/auth.dart';
 
 
 class MyHomePage extends StatelessWidget { 
+  BuildContext context;
+  MyHomePage({this.context});
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _auth = AuthService(); 
 

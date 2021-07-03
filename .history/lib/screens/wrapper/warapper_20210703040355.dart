@@ -15,10 +15,7 @@ class Wrapper extends StatelessWidget {
     return StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
-        }
-          else if (snapshot.connectionState == ConnectionState.active) {
+          if (snapshot.connectionState == ConnectionState.active) {
             User? user = snapshot.data;
             if (user == null) {
               return MultiProvider(
@@ -35,7 +32,7 @@ class Wrapper extends StatelessWidget {
         ],
         child: SignIn());
             } 
-            return  MyHomePage( );
+            return  MyHomePage( context: context,);
           } else {
             return Scaffold(
               body: Center(

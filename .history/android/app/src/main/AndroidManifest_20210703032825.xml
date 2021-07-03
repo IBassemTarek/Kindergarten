@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kindergarten.kindergarten_app">
-   <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="kindergarten"
         android:icon="@mipmap/launcher_icon">

@@ -71,13 +71,11 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
                       alignment: Alignment.bottomRight,
                       height: 0.030134*_height,
                       child: Text('Forget password ?',textAlign: TextAlign.right,style:Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14),)),
-            Builder(
-              builder: (context) => DashedButton(
-                ontap:  () async { 
-                    _validate(context);
-                      },
-                title: 'login',
-              ),
+            DashedButton(
+              ontap:  () async { 
+                  _validate(context);
+                    },
+              title: 'login',
             ),
                 Center(child: OrLine()),
                 Center(
@@ -119,9 +117,9 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     );
   }
 
-  void _validate(BuildContext context2) async { 
-    final modelhud = Provider.of<ModelHub>(context2,listen:false);
-    final _authData = Provider.of<AuthData>(context2,listen:false);
+  void _validate(BuildContext context) async { 
+    final modelhud = Provider.of<ModelHub>(context,listen:false);
+    final _authData = Provider.of<AuthData>(context,listen:false);
       
     modelhud.changeIsLoading(true);
     if (  _globalKey.currentState!.validate()) {
@@ -133,16 +131,17 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
             print(user.id);   
             modelhud.changeIsLoading(false);
           Navigator.pushReplacement(
-            context2,
+            context,
             OnBoardingPageRoute(
                 duration: 1000,
                 widget: Wrapper(),
                 myAnimation: Curves.elasticInOut),
           );
           }
+
         } on FirebaseAuthException catch (e)  {
           modelhud.changeIsLoading(false);
-          ScaffoldMessenger.of(context2).showSnackBar(SnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(e.message.toString()),
           ));
         }

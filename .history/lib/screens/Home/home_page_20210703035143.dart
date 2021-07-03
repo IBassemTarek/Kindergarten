@@ -4,13 +4,11 @@ import 'package:kindergarten/services/auth.dart';
 
 
 class MyHomePage extends StatelessWidget { 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _auth = AuthService(); 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar( 
         title: Text("Welcome"),
       ),

@@ -29,7 +29,7 @@ class CustomTextFormField extends StatelessWidget {
         ],
       ),
        child: TextFormField( 
-            onSaved: (value){
+            onChanged: (value){
               if(title == "Email")
               { 
               _authData.setEmail(emailIn:value);  

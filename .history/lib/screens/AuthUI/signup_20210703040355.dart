@@ -66,7 +66,7 @@ class SignUp extends StatelessWidget {
                     context,
                     OnBoardingPageRoute(
                       duration: 1000,
-                        widget:      MyHomePage( ),
+                        widget:      MyHomePage(context: context, ),
                         myAnimation: Curves.elasticInOut),
                     (route) => false);
               },
