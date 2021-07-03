@@ -101,7 +101,6 @@ class SignUp extends StatelessWidget {
                                             await _auth.signInUsingFaceBook();
                                         print(user.uid);
                                         print(user.displayName);
-                                        ProfileDataBaseServices().addUser(name: user.displayName.toString(), uid: user.uid, context: context);
                                         Navigator.pushReplacement(
                                           context,
                                           OnBoardingPageRoute(
@@ -124,8 +123,6 @@ class SignUp extends StatelessWidget {
                                         User user =
                                             await _auth.signInUsingGoogle();
                                         print(user.uid);
-                                        print(user.displayName);
-                                        ProfileDataBaseServices().addUser(name: user.displayName.toString(), uid: user.uid, context: context);
                                         Navigator.pushReplacement(
                                           context,
                                           OnBoardingPageRoute(

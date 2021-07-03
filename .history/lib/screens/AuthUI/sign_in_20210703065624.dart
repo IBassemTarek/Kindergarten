@@ -97,9 +97,7 @@ class SignIn extends StatelessWidget {
                                     try {
                                       User user =
                                           await _auth.signInUsingFaceBook();
-                                        print(user.uid);
-                                        print(user.displayName);
-                                        ProfileDataBaseServices().addUser(name: user.displayName.toString(), uid: user.uid, context: context);
+                                      print(user.uid);
                                       Navigator.pushReplacement(
                                         context,
                                         OnBoardingPageRoute(
