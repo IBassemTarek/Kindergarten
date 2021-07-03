@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:kindergarten/services/auth.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key); 
@@ -13,7 +12,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
- final _auth = AuthService(); 
+
+  void _incrementCounter() {
+    setState(() { 
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) { 
@@ -36,9 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-            await _auth.signOut();
-        },
+        onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),  
