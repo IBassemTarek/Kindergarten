@@ -163,7 +163,8 @@ class SignUp extends StatelessWidget {
 
     modelhud.changeIsLoading(true);
     if (_globalKey.currentState!.validate()) {
-      _globalKey.currentState!.save(); 
+      _globalKey.currentState!.save();
+      print(_authData.email.toString()+_authData.name.toString()+_authData.password.toString());
       try {
         dynamic userData =
             await _auth.signUp(_authData.email, _authData.password);

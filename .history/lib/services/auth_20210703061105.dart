@@ -71,7 +71,7 @@ class AuthService {
       return authResult.user;
   }
 
-  Future signUp(emailSignIn, passwordSignIn) async {
+  Future signUp({emailSignIn, passwordSignIn}) async {
       var authResult = await _auth.createUserWithEmailAndPassword(
           email: emailSignIn, password: passwordSignIn); 
       return authResult.user;

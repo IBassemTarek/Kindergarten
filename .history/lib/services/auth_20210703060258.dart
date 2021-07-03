@@ -16,7 +16,11 @@ class AuthService {
     return _auth.authStateChanges().map(userFromFirebaseUser);
   }
 
-
+  Future signIn(emailSignIn, passwordSignIn) async {
+      var authResult = await _auth.signInWithEmailAndPassword(
+          email: emailSignIn, password: passwordSignIn);
+      return authResult.user;
+  }
 
   Future signInUsingGoogle() async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -65,15 +69,29 @@ class AuthService {
     }
   }  
 
-  Future signIn(emailSignIn, passwordSignIn) async {
-      var authResult = await _auth.signInWithEmailAndPassword(
-          email: emailSignIn, password: passwordSignIn);
-      return authResult.user;
-  }
 
-  Future signUp(emailSignIn, passwordSignIn) async {
+
+  Future signUp({emailSignIn, passwordSignIn}) async {
+    try { 
       var authResult = await _auth.createUserWithEmailAndPassword(
           email: emailSignIn, password: passwordSignIn); 
-      return authResult.user;
+            if (authResult.user != null) { 
+              UserModel user = userFromFirebaseUser(authResult.user);
+              print(user.id);  
+          return userFromFirebaseUser(user);
+            }
+            else 
+            print("null");
+ 
+    }  on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      }
+else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+        } catch (e) {
+      print(e);
+    }
   } 
 }

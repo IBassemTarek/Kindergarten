@@ -162,30 +162,31 @@ class SignUp extends StatelessWidget {
     final _authData = Provider.of<AuthData>(context2, listen: false);
 
     modelhud.changeIsLoading(true);
-    if (_globalKey.currentState!.validate()) {
-      _globalKey.currentState!.save(); 
-      try {
-        dynamic userData =
-            await _auth.signUp(_authData.email, _authData.password);
-        if (userData != null) {
-          UserModel user = _auth.userFromFirebaseUser(userData);
-          print(user.id);
-          modelhud.changeIsLoading(false);
-          ProfileDataBaseServices().addUser(name: _authData.name.toString(), uid: user.id, context: context2);
-          Navigator.pushReplacement(
-            context2,
-            OnBoardingPageRoute(
-                duration: 1000,
-                widget: Wrapper(),
-                myAnimation: Curves.elasticInOut),
-          );
-        }
-      } on FirebaseAuthException catch (e) {
-        modelhud.changeIsLoading(false);
-        ScaffoldMessenger.of(context2).showSnackBar(SnackBar(
-          content: Text(e.message.toString()),
-        ));
-      }
+    if (true) {
+      _globalKey.currentState!.save();
+      print(_authData.email.toString()+_authData.name.toString()+_authData.password.toString());
+      // try {
+      //   dynamic userData =
+      //       await _auth.signUp(_authData.email, _authData.password);
+      //   if (userData != null) {
+      //     UserModel user = _auth.userFromFirebaseUser(userData);
+      //     print(user.id);
+      //     modelhud.changeIsLoading(false);
+      //     ProfileDataBaseServices().addUser(name: _authData.name.toString(), uid: user.id, context: context2);
+      //     Navigator.pushReplacement(
+      //       context2,
+      //       OnBoardingPageRoute(
+      //           duration: 1000,
+      //           widget: Wrapper(),
+      //           myAnimation: Curves.elasticInOut),
+      //     );
+      //   }
+      // } on FirebaseAuthException catch (e) {
+      //   modelhud.changeIsLoading(false);
+      //   ScaffoldMessenger.of(context2).showSnackBar(SnackBar(
+      //     content: Text(e.message.toString()),
+      //   ));
+      // }
     }
     else {
       print('dd');
