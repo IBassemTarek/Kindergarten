@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:is_first_run/is_first_run.dart';
 import 'package:kindergarten/screens/AuthUI/sign_in.dart';
 import 'package:kindergarten/screens/Onboarding/onboarding_screen.dart';
-import 'package:kindergarten/screens/wrapper/warapper.dart';
 import 'package:kindergarten/services/auth.dart';
 import 'package:provider/provider.dart';
 
