@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:is_first_run/is_first_run.dart';
 import 'package:kindergarten/screens/AuthUI/sign_in.dart';
@@ -11,9 +10,7 @@ import 'package:provider/provider.dart';
 import '../../settings.dart';
 import 'models/AuthData/auth_data.dart';
 import 'models/AuthVisible/auth_visible.dart'; 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(MyApp());
 }
 

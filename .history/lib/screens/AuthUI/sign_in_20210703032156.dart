@@ -1,12 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kindergarten/models/AuthData/auth_data.dart';
-import 'package:kindergarten/models/modalprogrsshub.dart';
-import 'package:kindergarten/models/user_model.dart';
 import 'package:kindergarten/screens/Home/home_page.dart';
 import 'package:kindergarten/screens/shared/dashed_botton.dart';
 import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
-import 'package:kindergarten/services/auth.dart';
 import 'package:provider/provider.dart';
 
 
@@ -21,7 +17,6 @@ import 'sign_method_change.dart';
 class SignIn extends StatelessWidget {
 final GlobalKey<FormState> _globalKey = new GlobalKey<FormState>(); 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final _auth = AuthService(); 
   static List<TextFieldLables> loginTextFieldLables = [
      TextFieldLables(
        lable:  "Email",
@@ -67,7 +62,13 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
                   child: Text('Forget password ?',textAlign: TextAlign.right,style:Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14),)),
         DashedButton(
           ontap:  () async { 
-              _validate(context);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      OnBoardingPageRoute(
+                        duration: 1000,
+                          widget:      MyHomePage(title: 'dd',) ,
+                          myAnimation: Curves.elasticInOut),
+                      (route) => false);
                 },
           title: 'login',
         ),
@@ -107,37 +108,4 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
       ),
     );
   }
-
-  void _validate(BuildContext context) async { 
-    final modelhud = Provider.of<ModelHub>(context,listen:false);
-    final _authData = Provider.of<AuthData>(context,listen:false);
-      
-    modelhud.changeIsLoading(true);
-    if (  _globalKey.currentState!.validate()) {
-      _globalKey.currentState!.save(); 
-        try { 
-          dynamic userData = await _auth.signIn(_authData.email, _authData.password);
-          if (userData != null) {
-            modelhud.changeIsLoading(false);
-            UserModel user = _auth.userFromFirebaseUser(userData);
-            print(user.id);  
-          Navigator.pushReplacement(
-            context,
-            OnBoardingPageRoute(
-                duration: 1000,
-                widget: MyHomePage(title: 'dd',),
-                myAnimation: Curves.elasticInOut),
-          );
-          }
-        } on FirebaseAuthException catch (e)  {
-          modelhud.changeIsLoading(false);
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(e.message.toString()),
-          ));
-        }
-      
-    }
-    modelhud.changeIsLoading(false);
-  }
-  
 }

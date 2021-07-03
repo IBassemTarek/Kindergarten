@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "554953691370",
+    "project_id": "kindergarten-3f5ab",
+    "storage_bucket": "kindergarten-3f5ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554953691370:android:2abc969d3738b9ce178793",
+        "android_client_info": {
+          "package_name": "com.kindergarten.kindergarten_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554953691370-ug98jnleh2ogm5q9o95orr01229a14lp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kindergarten.kindergarten_app",
+            "certificate_hash": "beaff5437731e041725f902ddc7ed7dda340581b"
+          }
+        },
+        {
+          "client_id": "554953691370-2v03dgp48c969b72lupdr9dl3knqrkrr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk6ZnRGpGyNzVKoY70OuL8GZSBH2YnFmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554953691370-2v03dgp48c969b72lupdr9dl3knqrkrr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
