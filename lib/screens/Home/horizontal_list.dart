@@ -3,7 +3,8 @@ import 'package:kindergarten/screens/Home/info_cell.dart';
 
 class HorizontalList extends StatelessWidget { 
   final List listOfData;
-  HorizontalList({required this.listOfData});
+  final bool navigation;
+  HorizontalList({required this.listOfData,required this.navigation});
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -17,10 +18,17 @@ class HorizontalList extends StatelessWidget {
          itemCount: listOfData.length,
          separatorBuilder: (context,i)=>  SizedBox(width:0.07729*_width,),
         itemBuilder:  (context,i) {
-          return InfoCell(
-              imageURL: listOfData[i].imageURL,
-              title: listOfData[i].title,
-              link: listOfData[i].link,
+          return InkWell(
+            onTap: ()async{
+              navigation? 
+              listOfData[i].function(context:context)
+              :listOfData[i].function(link:"http://www.africau.edu/images/default/sample.pdf");
+              },
+            child: InfoCell(
+              isBig: false,
+                imageURL: listOfData[i].imageURL,
+                title: listOfData[i].title,
+            ),
           );}
       ),
     );

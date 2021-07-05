@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kindergarten/screens/EducationUnit/education_unit.dart';
+import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
 import 'horizontal_list.dart';
 
 import '../../settings.dart';
@@ -21,7 +23,13 @@ class EducationUnits extends StatelessWidget {
       Text('Educational units',style:Theme.of(context).textTheme.headline3,),
       InkWell(
         onTap: (){
-
+             Navigator.push(
+                 context,
+                  OnBoardingPageRoute(
+                    duration: 1000,
+                    widget: EducationUnit(),
+                    myAnimation: Curves.elasticInOut),
+             ); 
         },
         child: Wrap(
           direction:Axis.horizontal,
@@ -35,7 +43,7 @@ class EducationUnits extends StatelessWidget {
     ],
             ),
           ),
-          HorizontalList(listOfData:educationUnitData,)
+          HorizontalList(listOfData:educationUnitData,navigation: true,)
       ],
     );
   }

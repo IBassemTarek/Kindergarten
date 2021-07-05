@@ -71,7 +71,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 typeDashNumber:  TypeDashNumber.Small,
                 child: InkWell(
                     onTap: () async { 
-                      Navigator.pushAndRemoveUntil(
+                      Navigator.pushReplacement(
                           context,
                           OnBoardingPageRoute(
                             duration: 1000,
@@ -90,7 +90,7 @@ class _OnBoardingState extends State<OnBoarding> {
                                 
                                 child: SignIn()),
                               myAnimation: Curves.elasticInOut),
-                          (route) => false);
+                          );
                     },
                     child: Center(
                       child: Text("إبدأ",style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 24,color:kColor3),),

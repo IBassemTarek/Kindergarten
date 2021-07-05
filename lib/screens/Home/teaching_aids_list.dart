@@ -1,19 +1,19 @@
-List<AidsUnitModel> aidsUnitData = [
-    AidsUnitModel(
+import 'package:kindergarten/models/tab_model.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+List<TabModel> aidsUnitData = [
+    TabModel(
       imageURL: "assets/images/aids/1.png",
-      link: "http://www.africau.edu/images/default/sample.pdf",
+      function: ({required String link}) async {
+      await canLaunch(link) ? await launch(link) : throw 'Could not launch $link';
+      },
       title: "Preparing classes"
     ),
-    AidsUnitModel(
+    TabModel(
       imageURL: "assets/images/aids/2.png",
-      link: "http://www.africau.edu/images/default/sample.pdf",
+      function: ({required String link}) async {
+      await canLaunch(link) ? await launch(link) : throw 'Could not launch $link';
+      },
       title: "Various means"
     ), 
 ]; 
-
-class AidsUnitModel {
-    final String title;
-    final String imageURL;
-    final String link;
-    AidsUnitModel({required this.imageURL,required this.link,required this.title});
-}

@@ -62,6 +62,7 @@ class HomePage extends StatelessWidget {
           alignment: Alignment.bottomRight,
           child: Image.asset("assets/images/home/services-vector.png",height: 0.21205*_height,)),
                   InfoUnit( 
+                    navigation: true,
                     listOfData: servicesUnitData,
                     sectionTitle: "Other services",
                   ),
@@ -70,6 +71,7 @@ class HomePage extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: InfoUnit( 
+                  navigation: false,
                   listOfData: aidsUnitData,
                   sectionTitle: "Teaching Aids",
                 ),
@@ -84,6 +86,7 @@ class HomePage extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: InfoUnit( 
+                        navigation: true,
                         listOfData: soonUnitData,
                         sectionTitle: "Services provide soon",
                       ),

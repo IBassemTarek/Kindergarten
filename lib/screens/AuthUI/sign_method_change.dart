@@ -25,7 +25,7 @@ class SignMethodChange extends StatelessWidget {
             InkWell(
               onTap: (){
                 if (currentWidget == "Sign Up")
-                Navigator.pushAndRemoveUntil(
+                Navigator.pushReplacement(
                       context,
                       OnBoardingPageRoute(
                         duration: 1000,
@@ -44,9 +44,9 @@ class SignMethodChange extends StatelessWidget {
                             
                             child: SignIn()),
                           myAnimation: Curves.elasticInOut),
-                      (route) => false);
+                     );
                 else
-                Navigator.pushAndRemoveUntil(
+                Navigator.pushReplacement(
                       context,
                       OnBoardingPageRoute(
                         duration: 1000,
@@ -65,7 +65,7 @@ class SignMethodChange extends StatelessWidget {
                             
                             child: SignUp()),
                           myAnimation: Curves.elasticInOut),
-                      (route) => false);
+                     );
               },
               child: Text(currentWidget == "Sign Up"?"Sign In" :"Sign Up",
                   style: Theme.of(context)

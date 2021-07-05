@@ -3,7 +3,8 @@ import 'horizontal_list.dart';
 class InfoUnit extends StatelessWidget {  
   final List listOfData;
   final String sectionTitle;
-  InfoUnit({required this.listOfData,required this.sectionTitle});
+  final bool navigation;
+  InfoUnit({required this.listOfData,required this.sectionTitle,required this.navigation});
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -16,7 +17,7 @@ class InfoUnit extends StatelessWidget {
             child: Text(sectionTitle,style:Theme.of(context).textTheme.headline3,), 
     
           ),
-          HorizontalList(listOfData:listOfData,)
+          HorizontalList(listOfData:listOfData,navigation: navigation,)
       ],
     );
   }
