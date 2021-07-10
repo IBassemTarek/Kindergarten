@@ -1,7 +1,9 @@
  
-import 'package:flutter/material.dart'; 
-import 'package:kindergarten/screens/Home/info_unit.dart'; 
-import 'package:kindergarten/screens/commonWidget/app_bar.dart'; 
+import 'package:flutter/material.dart';
+import 'package:kindergarten/models/pdf_model.dart';
+import 'package:kindergarten/screens/shared/info_unit.dart';  
+import 'package:kindergarten/screens/commonWidget/app_bar.dart';
+import 'package:provider/provider.dart'; 
 
 import '../../settings.dart';
 import 'courses_items.dart';
@@ -16,6 +18,8 @@ class LearningResources extends StatelessWidget {
   Widget build(BuildContext context) {  
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height; 
+    final enrichmentPrograms = Provider.of<List<EnrichmentPrograms>>(context);
+     final trainingCourses = Provider.of<List<TrainingCourses>>(context);
     return Scaffold(
       backgroundColor: kColor9,
       body: Stack(
@@ -37,12 +41,16 @@ class LearningResources extends StatelessWidget {
                   height: 0.18415*_height,
                   width: 0.937198*_width,
                   child: Image.asset("assets/images/resources/land.png",height:0.18415*_height)),
-                InfoUnit( 
+                enrichmentPrograms.isEmpty?Center(child: CircularProgressIndicator()):
+                InfoUnit(
+                  listOfPdfs: enrichmentPrograms, 
                   navigation: false,
                   listOfData: programsData,
                   sectionTitle: "Enrichment programs",
                 ),
+                trainingCourses.isEmpty?Center(child: CircularProgressIndicator()):
                 InfoUnit( 
+                  listOfPdfs: trainingCourses, 
                   navigation: false,
                   listOfData: coursesData,
                   sectionTitle: "Training courses",

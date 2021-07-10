@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:kindergarten/models/pdf_model.dart'; 
+import 'package:kindergarten/services/teaching_aids.dart'; 
 import 'package:kindergarten/services/users.dart';
 import '../../models/AuthData/auth_data.dart';
 import '../../models/AuthVisible/auth_visible.dart';
@@ -47,6 +49,11 @@ StreamProvider<UserData>.value(
       value: ProfileDataBaseServices().childData(uid: user.uid),
        initialData: UserData(name: 'Name'),
        ),
+StreamProvider<List<TechingAids>>.value(
+      value: TeachingAidsServices().teachingAidsData,
+       initialData: [], 
+       ),
+
               ChangeNotifierProvider<DrawerScalling>(
           create: (context) => DrawerScalling(),
         )

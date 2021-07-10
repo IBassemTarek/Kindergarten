@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 import 'package:kindergarten/screens/Home/info_cell.dart'; 
 
 class HorizontalList extends StatelessWidget { 
   final List listOfData;
+  final List listOfPdfs;
   final bool navigation;
-  HorizontalList({required this.listOfData,required this.navigation});
+  HorizontalList({required this.listOfData,required this.navigation,required this.listOfPdfs});
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -22,7 +23,7 @@ class HorizontalList extends StatelessWidget {
             onTap: ()async{
               navigation? 
               listOfData[i].function(context:context)
-              :listOfData[i].function(link:"http://www.africau.edu/images/default/sample.pdf");
+              :listOfData[i].function(context:context,url:listOfPdfs[i].url,title:listOfData[i].title);
               },
             child: InfoCell(
               isBig: false,

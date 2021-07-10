@@ -1,15 +1,17 @@
  
 import 'package:flutter/material.dart';
+import 'package:kindergarten/models/pdf_model.dart'; 
 import 'package:kindergarten/screens/DrawerScreen/drawer_screen.dart';
 import 'package:kindergarten/screens/DrawerScreen/page_have_drawer.dart';
 import 'package:kindergarten/screens/Home/soon_units.dart';
 import 'package:kindergarten/screens/Home/welcome_section.dart';
-import 'package:kindergarten/screens/commonWidget/app_bar.dart'; 
+import 'package:kindergarten/screens/commonWidget/app_bar.dart';
+import 'package:kindergarten/screens/shared/info_unit.dart';
+import 'package:provider/provider.dart'; 
 
 import '../../settings.dart';
 import 'education_unit.dart';
-import 'events_carsouel.dart';
-import 'info_unit.dart';
+import 'events_carsouel.dart'; 
 import 'other_services_list.dart';
 import 'teaching_aids_list.dart';
 
@@ -35,6 +37,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {  
+    final teachingAids = Provider.of<List<TechingAids>>(context);
     final _height = MediaQuery.of(context).size.height; 
     return SingleChildScrollView(
       child: Container(
@@ -62,15 +65,18 @@ class HomePage extends StatelessWidget {
           alignment: Alignment.bottomRight,
           child: Image.asset("assets/images/home/services-vector.png",height: 0.21205*_height,)),
                   InfoUnit( 
+                    listOfPdfs: [],
                     navigation: true,
                     listOfData: servicesUnitData,
                     sectionTitle: "Other services",
                   ),
                 ],
               ),
+              teachingAids.isEmpty?Center(child: CircularProgressIndicator()):
               Align(
                 alignment: Alignment.topLeft,
-                child: InfoUnit( 
+                child: InfoUnit(
+                  listOfPdfs: teachingAids, 
                   navigation: false,
                   listOfData: aidsUnitData,
                   sectionTitle: "Teaching Aids",
@@ -86,6 +92,7 @@ class HomePage extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: InfoUnit( 
+                        listOfPdfs: [],
                         navigation: true,
                         listOfData: soonUnitData,
                         sectionTitle: "Services provide soon",

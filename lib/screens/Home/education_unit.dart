@@ -43,7 +43,7 @@ class EducationUnits extends StatelessWidget {
     ],
             ),
           ),
-          HorizontalList(listOfData:educationUnitData,navigation: true,)
+          HorizontalList(listOfData:educationUnitData,navigation: true,listOfPdfs: [],)
       ],
     );
   }
