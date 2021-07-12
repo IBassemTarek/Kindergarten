@@ -3,7 +3,9 @@ import 'package:kindergarten/screens/Home/info_cell.dart';
 
 class BigVerticalList extends StatelessWidget { 
   final List listOfData;
-  BigVerticalList({required this.listOfData});
+  final List listOfPdfs;
+  final bool apps;
+  BigVerticalList({required this.apps,required this.listOfPdfs,required this.listOfData});
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -21,7 +23,9 @@ class BigVerticalList extends StatelessWidget {
         itemBuilder:  (context,i) {
           return InkWell(
             onTap: ()async{
-              listOfData[i].function(link:"http://www.africau.edu/images/default/sample.pdf");
+              apps?  
+              listOfData[i].function(link:listOfPdfs[i].url):
+              listOfData[i].function(context:context,url:listOfPdfs[i].url,title:listOfData[i].title);
               },
             child: InfoCell(
                 isBig: true,

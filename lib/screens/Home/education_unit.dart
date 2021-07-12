@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kindergarten/screens/EducationUnit/education_unit.dart';
+import 'package:kindergarten/screens/EducationUnit/education_item_UI.dart';
 import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
 import 'horizontal_list.dart';
 

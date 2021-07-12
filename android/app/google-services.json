@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "554953691370-ug98jnleh2ogm5q9o95orr01229a14lp.apps.googleusercontent.com",
+          "client_id": "554953691370-t1r00f51ring6i1dvpo0a6185jlpnut4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.kindergarten.kindergarten_app",
-            "certificate_hash": "beaff5437731e041725f902ddc7ed7dda340581b"
+            "certificate_hash": "452cfc0ee3b77be731769add5e262a11e68a4168"
           }
         },
         {

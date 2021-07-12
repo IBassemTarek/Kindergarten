@@ -5,7 +5,10 @@ import 'package:provider/provider.dart';
 import '../../settings.dart';
 
 class SuffixTextField extends StatelessWidget {
- SuffixTextField({required this.title,});
+  const SuffixTextField({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   final String title;
 

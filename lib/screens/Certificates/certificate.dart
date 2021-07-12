@@ -1,7 +1,9 @@
  
 import 'package:flutter/material.dart';
-import 'package:kindergarten/screens/SubEducationUnit/big_vertical_list.dart'; 
-import 'package:kindergarten/screens/commonWidget/app_bar.dart'; 
+import 'package:kindergarten/models/pdf_model.dart'; 
+import 'package:kindergarten/screens/commonWidget/app_bar.dart';
+import 'package:kindergarten/screens/shared/big_vertical_list.dart';
+import 'package:provider/provider.dart'; 
 
 import '../../settings.dart';
 import 'certificate_carsouel.dart';
@@ -13,6 +15,7 @@ class CertificatesAndLetters extends StatelessWidget {
   Widget build(BuildContext context) {  
     final _height = MediaQuery.of(context).size.height; 
     final _width = MediaQuery.of(context).size.width;
+     final lettersUrls = Provider.of<List<LetterModel>>(context);
     return Scaffold(
       body: Container(
             color: kColor9, 
@@ -31,7 +34,7 @@ class CertificatesAndLetters extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text('letters',style:Theme.of(context).textTheme.headline3,)),
                   ),      
-                BigVerticalList(listOfData: lettersData,) 
+                BigVerticalList(listOfData: lettersData,listOfPdfs: lettersUrls,apps: false,) 
               ],
             ),
           ),
