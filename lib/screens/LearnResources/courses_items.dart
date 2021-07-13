@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kindergarten/models/tab_model.dart';
-import 'package:kindergarten/pdf/pdf_screen.dart';
+import 'package:kindergarten/screens/pdf/pdf_screen.dart'; 
 import 'package:kindergarten/screens/shared/pageRouteAnimation.dart'; 
 
 List<TabModel> coursesData = [

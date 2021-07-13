@@ -4,8 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:kindergarten/screens/commonWidget/app_bar.dart';
 import 'package:path_provider/path_provider.dart'; 
 import 'dart:io';
-//PdfScreen(pdfDriveUrl: "https://drive.google.com/file/d/1DmJ0oc4bTQg1gkFxGACZ4Gy2TUhDD8qP/view?usp=sharing",title: "learning resources",),
-import '../settings.dart';
+
+import '../../settings.dart'; 
 class PdfScreen extends StatefulWidget {
   final String pdfDriveUrl;
   final String title;
