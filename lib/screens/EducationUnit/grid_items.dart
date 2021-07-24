@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:kindergarten/screens/Home/info_cell.dart'; 
+import 'package:flutter/material.dart'; 
+import 'package:kindergarten/screens/Home/static_info_cell.dart'; 
 
 class GridList extends StatelessWidget { 
   final List listOfData;
@@ -19,12 +19,10 @@ class GridList extends StatelessWidget {
        itemCount: listOfData.length,
       itemBuilder:  (context,i) {
         return InkWell(
-            onTap: ()async{
-              navigation? 
-              listOfData[i].function(context:context)
-              :listOfData[i].function(link:"http://www.africau.edu/images/default/sample.pdf");
+            onTap: ()async{ 
+              listOfData[i].function(context:context);
               },
-          child: InfoCell(
+          child: StaticInfoCell(
               isBig: false,
               imageURL: listOfData[i].imageURL,
               title: listOfData[i].title, 

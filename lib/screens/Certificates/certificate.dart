@@ -1,13 +1,13 @@
  
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 import 'package:kindergarten/models/pdf_model.dart'; 
 import 'package:kindergarten/screens/commonWidget/app_bar.dart';
 import 'package:kindergarten/screens/shared/big_vertical_list.dart';
 import 'package:provider/provider.dart'; 
 
 import '../../settings.dart';
-import 'certificate_carsouel.dart';
-import 'letters.dart';  
+import 'certificate_carsouel.dart'; 
 
 
 class CertificatesAndLetters extends StatelessWidget { 
@@ -26,15 +26,15 @@ class CertificatesAndLetters extends StatelessWidget {
               alignment: WrapAlignment.center,
               runSpacing: 0.0390625*_height,  
               children: <Widget>[
-                TopBar(title: "Certificates and letters"), 
+                TopBar(title: "Certificates and letters",staticTitle: true,), 
                 CertificatesCarsouel(),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal:0.0507*_width ),
                   child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text('letters',style:Theme.of(context).textTheme.headline3,)),
+                    alignment: Locales.currentLocale(context).toString() == "en"?Alignment.centerLeft:Alignment.centerRight,
+                    child: LocaleText('letters',style:Theme.of(context).textTheme.headline3,)),
                   ),      
-                BigVerticalList(listOfData: lettersData,listOfPdfs: lettersUrls,apps: false,) 
+                BigVerticalList( listOfPdfs: lettersUrls,apps: false,) 
               ],
             ),
           ),

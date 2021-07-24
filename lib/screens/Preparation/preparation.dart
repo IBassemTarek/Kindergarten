@@ -23,7 +23,7 @@ class Preparation extends StatelessWidget {
               alignment: WrapAlignment.center,
               runSpacing: 0.0390625*_height,  
               children: <Widget>[
-                TopBar(title: "Preparation",), 
+                TopBar(title: "Preparation",staticTitle: true), 
                 GridList(listOfData: preparationData,navigation: true,), 
               ],
             ),

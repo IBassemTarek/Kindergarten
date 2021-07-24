@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart'; 
 import 'package:kindergarten/screens/Home/horizontal_list.dart';
+import 'package:kindergarten/screens/Home/soon_horizontal_list.dart';
 
 
 class InfoUnit extends StatelessWidget {  
@@ -13,15 +15,25 @@ class InfoUnit extends StatelessWidget {
 
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;  
-    return Wrap(
-      runSpacing: 0.0279*_height,
+    return Column( 
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal:0.0507*_width ), 
-            child: Text(sectionTitle,style:Theme.of(context).textTheme.headline3,), 
+            child: LocaleText(sectionTitle,style:Theme.of(context).textTheme.headline3,), 
     
           ),
-          HorizontalList(listOfData:listOfData,navigation: navigation,listOfPdfs: listOfPdfs,)
+          SizedBox(height:.0279*_height),
+          Builder(builder: (context){
+            if (sectionTitle == "Services provide soon")
+            {
+              return SoonHorizontalList(listOfPdfs: listOfPdfs,);
+            }
+            else {
+              return HorizontalList(listOfData:listOfData,navigation: navigation,listOfPdfs: listOfPdfs,);
+            }
+          }),
+          
       ],
     );
   }

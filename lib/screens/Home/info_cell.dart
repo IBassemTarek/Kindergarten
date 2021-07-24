@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; 
+import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../settings.dart';
 
@@ -17,12 +18,31 @@ class InfoCell extends StatelessWidget {
         height: isBig?0.20647*_height:0.111607*_height,  
         width: isBig?0.855*_width:0.31159*_width, //
         decoration: BoxDecoration(
-       image: DecorationImage(
-         fit: BoxFit.cover,
-         image: AssetImage(imageURL)
-       ),
+      //  image: DecorationImage(
+      //    fit: BoxFit.cover,
+      //    image: NetworkImage(imageURL)
+      //  ),
           borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0),topRight: Radius.circular(15.0)),
-        ),
+        ), 
+             child: CachedNetworkImage(
+          fit: BoxFit.fill,
+      placeholder: (context, url) => Center(
+      child: SizedBox(
+        width: 30,
+        height: 30,
+        child: CircularProgressIndicator(
+        )),
+    ), 
+    imageUrl:  imageURL,
+    errorWidget: (___, _, __) {
+                return  Container( 
+                        child: Image.asset(
+                          'assets/images/No-Image.png',
+                          fit: BoxFit.cover),
+                );
+              },
+   
+),
       ),
       Container(
         height: isBig?0.0435*_height:0.0357*_height, //

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 import 'package:kindergarten/models/drawer_scalling.dart';
 import 'package:kindergarten/screens/Home/home_page.dart';
 import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
@@ -8,7 +9,8 @@ import '../../settings.dart';
 
 class TopBar extends StatelessWidget {
   final String title; 
-  TopBar({required this.title });
+  final bool staticTitle; 
+  TopBar({required this.title ,required this.staticTitle});
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -72,11 +74,17 @@ class TopBar extends StatelessWidget {
                     child: Icon(Icons.arrow_back,color: kColor4,)));
                      },),
                ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.headline3?.copyWith(fontSize: 21),
+            Padding(
+              padding: EdgeInsets.only(top:8.0),
+              child: Align(
+                alignment: Alignment.center,
+                child: staticTitle?LocaleText(
+                  title,
+                  style: Theme.of(context).textTheme.headline3?.copyWith(fontSize: 21),
+                ):Text(
+                  title,
+                  style: Theme.of(context).textTheme.headline3?.copyWith(fontSize: 21),
+                ),
               ),
             ),
           ],

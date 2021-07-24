@@ -5,9 +5,7 @@ import 'package:kindergarten/screens/shared/info_unit.dart';
 import 'package:kindergarten/screens/commonWidget/app_bar.dart';
 import 'package:provider/provider.dart'; 
 
-import '../../settings.dart';
-import 'courses_items.dart';
-import 'programs_items.dart'; 
+import '../../settings.dart';  
 
  
 
@@ -36,7 +34,7 @@ class LearningResources extends StatelessWidget {
               alignment: WrapAlignment.center,
               runSpacing: 0.0390625*_height,  
               children: <Widget>[
-                TopBar(title: "learning resources",), 
+                TopBar(title: "learning resources",staticTitle: true), 
                 Container(
                   height: 0.18415*_height,
                   width: 0.937198*_width,
@@ -45,14 +43,14 @@ class LearningResources extends StatelessWidget {
                 InfoUnit(
                   listOfPdfs: enrichmentPrograms, 
                   navigation: false,
-                  listOfData: programsData,
+                  listOfData: [],
                   sectionTitle: "Enrichment programs",
                 ),
                 trainingCourses.isEmpty?Center(child: CircularProgressIndicator()):
                 InfoUnit( 
                   listOfPdfs: trainingCourses, 
                   navigation: false,
-                  listOfData: coursesData,
+                  listOfData: [],
                   sectionTitle: "Training courses",
                 ),   
               ],

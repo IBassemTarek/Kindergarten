@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart'; 
-import 'package:kindergarten/screens/Home/info_cell.dart'; 
-
+import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart'; 
+import 'package:kindergarten/screens/Home/info_cell.dart';
+import 'package:kindergarten/screens/pdf/pdf_screen.dart';
+import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';  
 class HorizontalList extends StatelessWidget { 
   final List listOfData;
   final List listOfPdfs;
@@ -16,19 +18,29 @@ class HorizontalList extends StatelessWidget {
          padding: EdgeInsets.symmetric(horizontal:0.0507*_width ),
          scrollDirection: Axis.horizontal,
          shrinkWrap:true,
-         itemCount: listOfData.length,
+         itemCount: listOfPdfs.length,
          separatorBuilder: (context,i)=>  SizedBox(width:0.07729*_width,),
         itemBuilder:  (context,i) {
           return InkWell(
             onTap: ()async{
               navigation? 
               listOfData[i].function(context:context)
-              :listOfData[i].function(context:context,url:listOfPdfs[i].url,title:listOfData[i].title);
+              :
+        Navigator.push(
+         context,
+         OnBoardingPageRoute(
+         duration: 1000,
+         widget:
+         PdfScreen(
+           pdfDriveUrl: listOfPdfs[i].url,
+           title: Locales.currentLocale(context).toString() == "en"?listOfPdfs[i].title:listOfPdfs[i].titleA,),
+         myAnimation: Curves.elasticInOut),
+          ); 
               },
             child: InfoCell(
               isBig: false,
-                imageURL: listOfData[i].imageURL,
-                title: listOfData[i].title,
+                imageURL: driveURLTransfer(listOfPdfs[i].imageURL),
+                title: Locales.currentLocale(context).toString() == "en"?listOfPdfs[i].title:listOfPdfs[i].titleA,
             ),
           );}
       ),

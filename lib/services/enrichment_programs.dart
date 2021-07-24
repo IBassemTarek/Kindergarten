@@ -8,6 +8,9 @@ class EnrichmentProgramsServices {
   List<EnrichmentPrograms> _enrichmentProgramsListSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return EnrichmentPrograms(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

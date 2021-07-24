@@ -10,6 +10,9 @@ class FoodSectionServices {
   List<FoodSectionModel> _foodSectionSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return FoodSectionModel(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

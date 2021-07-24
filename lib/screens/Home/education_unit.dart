@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 import 'package:kindergarten/screens/EducationUnit/education_item_UI.dart';
-import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
-import 'horizontal_list.dart';
+import 'package:kindergarten/screens/Home/static_horizontal_list.dart';
+import 'package:kindergarten/screens/shared/pageRouteAnimation.dart'; 
 
 import '../../settings.dart';
 import 'educatioon_units.dart'; 
@@ -20,7 +21,7 @@ class EducationUnits extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      Text('Educational units',style:Theme.of(context).textTheme.headline3,),
+      LocaleText("Educational Units",style:Theme.of(context).textTheme.headline3,),
       InkWell(
         onTap: (){
              Navigator.push(
@@ -35,7 +36,7 @@ class EducationUnits extends StatelessWidget {
           direction:Axis.horizontal,
           spacing: 0.0314*_width,
           children: [
-            Text('View all',style:Theme.of(context).textTheme.headline2?.copyWith(color: kColor7,fontSize: 14)),
+            LocaleText('View all',style:Theme.of(context).textTheme.headline2?.copyWith(color: kColor7,fontSize: 14)),
             Icon(Icons.smart_display,color: kColor4,)
           ],
         ),
@@ -43,7 +44,7 @@ class EducationUnits extends StatelessWidget {
     ],
             ),
           ),
-          HorizontalList(listOfData:educationUnitData,navigation: true,listOfPdfs: [],)
+          StaticHorizontalList(listOfData:educationUnitData,navigation: true,listOfPdfs: [],)
       ],
     );
   }

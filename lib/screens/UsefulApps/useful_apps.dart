@@ -5,8 +5,7 @@ import 'package:kindergarten/screens/commonWidget/app_bar.dart';
 import 'package:kindergarten/screens/shared/big_vertical_list.dart';
 import 'package:provider/provider.dart'; 
 
-import '../../settings.dart';
-import 'apps_list.dart'; 
+import '../../settings.dart'; 
 
 
 class UsefulApps extends StatelessWidget { 
@@ -25,8 +24,8 @@ class UsefulApps extends StatelessWidget {
               alignment: WrapAlignment.center,
               runSpacing: 0.0390625*_height,  
               children: <Widget>[
-                TopBar(title: "Useful apps",), 
-                BigVerticalList(listOfData: usefulApps,listOfPdfs: usefulAppsLinks,apps: true,) 
+                TopBar(title: "Useful apps",staticTitle: true), 
+                BigVerticalList( listOfPdfs: usefulAppsLinks,apps: true,) 
               ],
             ),
           ),

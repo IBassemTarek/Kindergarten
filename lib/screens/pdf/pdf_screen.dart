@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
 import 'package:kindergarten/screens/commonWidget/app_bar.dart';
@@ -40,7 +41,7 @@ class _PdfScreenState extends State<PdfScreen> {
         decoration: tabsShadow.copyWith(color: kColor3),
         child:Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text('$currentPage of $totalPages',style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 14,color:kColor9 ),),
+          child: Text(Locales.currentLocale(context).toString() == "en"?'$currentPage of $totalPages':'$currentPage من $totalPages',style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 14,color:kColor9 ),),
         )
       ),
       body: localFile!=null ? SafeArea(
@@ -66,7 +67,7 @@ class _PdfScreenState extends State<PdfScreen> {
             alignment: Alignment.topRight, 
           child: Image.asset("assets/images/resources/Vector1.png",height:0.142053*_height)),
             //TopBar(title: "learning resources",),
-            TopBar(title: widget.title,),
+            TopBar(title: widget.title,staticTitle: false),
 
           ],
         ),
@@ -75,11 +76,20 @@ class _PdfScreenState extends State<PdfScreen> {
   }
 }
 
-String driveURLTransfer (String str){
-String pdfurl = "https://drive.google.com/uc?export=view&id="+str.substring(32, 65);
-print(pdfurl);
-return pdfurl;
+String driveURLTransfer (String str){  
+if (str.substring(0,24) == "https://drive.google.com")
+{
+return "https://drive.google.com/uc?export=view&id="+str.substring(32, 65);
 }
+else 
+{
+  print(str);
+return str;
+}
+
+}  
+
+
 class ApiService {
   
   static Future<String> loadPDF({required String pdfDrive}) async {

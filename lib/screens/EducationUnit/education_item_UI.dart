@@ -23,7 +23,7 @@ class EducationUnit extends StatelessWidget {
               alignment: WrapAlignment.center,
               runSpacing: 0.0390625*_height,  
               children: <Widget>[
-                TopBar(title: "Education Unit",), 
+                TopBar(title: "Educational Units",staticTitle: true), 
                 GridList(listOfData: educationUnitData,navigation: true,), 
               ],
             ),

@@ -10,6 +10,9 @@ class KidsBooksSectionServices {
   List<KidsBooksSectionModel> _kidsBooksSectionSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return KidsBooksSectionModel(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

@@ -8,6 +8,9 @@ class WelcomeSectionServices {
   List<WelcomeSectionModel> _welcomeSectionSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return WelcomeSectionModel(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

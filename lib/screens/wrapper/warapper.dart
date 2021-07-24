@@ -42,7 +42,7 @@ class Wrapper extends StatelessWidget {
         )
         ],
         child:  SignIn());
-            } 
+            } else
             return  MultiProvider(
       providers: [ 
 StreamProvider<UserData>.value(

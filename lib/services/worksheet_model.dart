@@ -8,7 +8,11 @@ class WorksheetServices {
   List<WorksheetsModel> _worksheetsListSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return WorksheetsModel(
+        titleA: doc.get('titleA'),
         url:  doc.get('url'),
+        imageURL:  doc.get('imageURL'),
+        title: doc.get('title'),
+
         ); 
     }).toList();
   }

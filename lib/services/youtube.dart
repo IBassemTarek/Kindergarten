@@ -8,6 +8,9 @@ class YoutubeServices {
   List<YoutubeModel> _youtubeSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return YoutubeModel(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

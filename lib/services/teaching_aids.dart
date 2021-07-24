@@ -8,7 +8,10 @@ class TeachingAidsServices {
   List<TechingAids> _teachingAidsListSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return TechingAids(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
         url:  doc.get('url'),
+        title: doc.get('title'),
         ); 
     }).toList();
   }

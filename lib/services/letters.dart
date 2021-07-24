@@ -8,6 +8,9 @@ class LettersServices {
   List<LetterModel> _letterListSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return LetterModel(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

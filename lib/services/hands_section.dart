@@ -10,6 +10,9 @@ class HandsSectionServices {
   List<HandsSectionModel> _handsSectionSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return HandsSectionModel(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

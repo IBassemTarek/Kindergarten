@@ -5,8 +5,7 @@ import 'package:kindergarten/screens/commonWidget/app_bar.dart';
 import 'package:kindergarten/screens/shared/big_vertical_list.dart';
 import 'package:provider/provider.dart'; 
 
-import '../../settings.dart';  
-import 'worksheets_items.dart';  
+import '../../settings.dart';    
 
 
 class Worksheets extends StatelessWidget { 
@@ -24,8 +23,8 @@ class Worksheets extends StatelessWidget {
               alignment: WrapAlignment.center,
               runSpacing: 0.0390625*_height,  
               children: <Widget>[
-                TopBar(title: "Worksheets"), 
-                BigVerticalList(listOfData: worksheetsData,listOfPdfs: worksheetsUrls,apps: false,) 
+                TopBar(title: "Worksheets",staticTitle: true),  
+                BigVerticalList( listOfPdfs: worksheetsUrls,apps: false,) 
               ],
             ),
           ),

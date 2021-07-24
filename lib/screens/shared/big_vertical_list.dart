@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:kindergarten/screens/Home/info_cell.dart'; 
+import 'package:flutter_locales/flutter_locales.dart';
+import 'package:kindergarten/screens/Home/info_cell.dart';
+import 'package:kindergarten/screens/pdf/pdf_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class BigVerticalList extends StatelessWidget { 
-  final List listOfData;
+import 'pageRouteAnimation.dart'; 
+
+class BigVerticalList extends StatelessWidget {  
   final List listOfPdfs;
   final bool apps;
-  BigVerticalList({required this.apps,required this.listOfPdfs,required this.listOfData});
+  BigVerticalList({required this.apps,required this.listOfPdfs });
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -18,19 +22,30 @@ class BigVerticalList extends StatelessWidget {
          scrollDirection: Axis.vertical,
          physics: NeverScrollableScrollPhysics(),
          shrinkWrap:true,
-         itemCount: listOfData.length,
+         itemCount: listOfPdfs.length,
          separatorBuilder: (context,i)=>  SizedBox(height:0.044643*_height,),
         itemBuilder:  (context,i) {
           return InkWell(
             onTap: ()async{
               apps?  
-              listOfData[i].function(link:listOfPdfs[i].url):
-              listOfData[i].function(context:context,url:listOfPdfs[i].url,title:listOfData[i].title);
+              await canLaunch(listOfPdfs[i].url) ? await launch(listOfPdfs[i].url) : throw 'Could not launch ${listOfPdfs[i].url}'
+              : 
+      Navigator.push(
+         context,
+         OnBoardingPageRoute(
+         duration: 1000,
+         widget:
+         PdfScreen(
+           pdfDriveUrl: listOfPdfs[i].url,
+           title: Locales.currentLocale(context).toString() == "en"?listOfPdfs[i].title:listOfPdfs[i].titleA,),
+         myAnimation: Curves.elasticInOut),
+          );
+       
               },
             child: InfoCell(
                 isBig: true,
-                imageURL: listOfData[i].imageURL,
-                title: listOfData[i].title, 
+                imageURL: driveURLTransfer(listOfPdfs[i].imageURL),
+                title: Locales.currentLocale(context).toString() == "en"?listOfPdfs[i].title:listOfPdfs[i].titleA, 
             ),
           );}
       ),

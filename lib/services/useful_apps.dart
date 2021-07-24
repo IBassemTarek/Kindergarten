@@ -8,6 +8,9 @@ class UsefulAppsServices {
   List<UsefulAppsModel> _usefulAppsSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return UsefulAppsModel(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

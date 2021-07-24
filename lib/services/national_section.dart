@@ -10,6 +10,9 @@ class NationalSectionServices {
   List<NationalSectionModel> _nationalSectionSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return NationalSectionModel(
+        titleA: doc.get('titleA'),
+        imageURL: doc.get('imageURL'),
+        title: doc.get('title'),
         url:  doc.get('url'),
         ); 
     }).toList();

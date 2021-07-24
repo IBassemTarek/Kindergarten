@@ -23,7 +23,7 @@ class LastMeeting extends StatelessWidget {
               alignment: WrapAlignment.center,
               runSpacing: 0.0390625*_height,  
               children: <Widget>[
-                TopBar(title: "last meeting",), 
+                TopBar(title: "last meeting",staticTitle: true), 
                 GridList(listOfData: educationUnitData,navigation: true,), 
               ],
             ),
