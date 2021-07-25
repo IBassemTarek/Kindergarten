@@ -11,6 +11,7 @@ class WorksheetServices {
         titleA: doc.get('titleA'),
         url:  doc.get('url'),
         imageURL:  doc.get('imageURL'),
+        source: doc.get('source'),
         title: doc.get('title'),
 
         ); 

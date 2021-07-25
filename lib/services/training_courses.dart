@@ -9,7 +9,7 @@ class TrainingCoursesServices {
     return snapshot.docs.map((doc) {
       return TrainingCourses(
         titleA: doc.get('titleA'),
-        imageURL: doc.get('imageURL'),
+        imageURL: doc.get('imageURL'),source: doc.get('source'),
         title:  doc.get('title'),
         url:  doc.get('url'),
         ); 

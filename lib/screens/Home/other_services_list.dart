@@ -6,6 +6,7 @@ import 'package:kindergarten/screens/LearnResources/learn_resources.dart';
 import 'package:kindergarten/screens/PlayOutSide/play_outSide.dart';
 import 'package:kindergarten/screens/Preparation/preparation.dart';
 import 'package:kindergarten/screens/SubEducationUnit/sub_education_unit.dart';
+import 'package:kindergarten/screens/UsefulApps/useful_apps.dart';
 import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
 import 'package:kindergarten/screens/worksheets/worksheets.dart';
 
@@ -110,5 +111,20 @@ List<TabModel> servicesUnitData = [
       }, 
       title: "Quran and biography"
     ),
+
+    TabModel(
+      imageURL: "assets/images/services/8.png",
+      function: ({required BuildContext context}){
+      Navigator.push(
+         context,
+         OnBoardingPageRoute(
+         duration: 1000,
+         widget: UsefulApps( 
+         ),
+         myAnimation: Curves.elasticInOut),
+          );
+      },
+      title: 'Useful apps'
+    ), 
 ]; 
  

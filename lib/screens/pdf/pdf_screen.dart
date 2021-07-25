@@ -3,14 +3,16 @@ import 'package:flutter_locales/flutter_locales.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
 import 'package:kindergarten/screens/commonWidget/app_bar.dart';
-import 'package:path_provider/path_provider.dart'; 
+import 'package:path_provider/path_provider.dart';
+import 'package:url_launcher/url_launcher.dart'; 
 import 'dart:io';
 
 import '../../settings.dart'; 
 class PdfScreen extends StatefulWidget {
   final String pdfDriveUrl;
   final String title;
-  PdfScreen({required this.title,required this.pdfDriveUrl});
+  final String source;
+  PdfScreen({required this.title,required this.pdfDriveUrl,required this.source});
   @override
   _PdfScreenState createState() => _PdfScreenState();
 }
@@ -63,6 +65,21 @@ class _PdfScreenState extends State<PdfScreen> {
                 ),
               ),
             ),
+          Align(
+            alignment: Locales.currentLocale(context).toString() == "en"?Alignment.bottomLeft:Alignment.bottomRight, 
+          child: InkWell(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              await canLaunch(widget.source) ? await launch(widget.source) : throw 'Could not launch ${widget.source}';
+            },
+            child: Container(
+              margin: EdgeInsets.all(15),
+              padding: EdgeInsets.all(6),
+              decoration: tabsShadow.copyWith(color: kColor3),
+              child: Icon(Icons.download,color: kColor9,),
+            ),
+          )),
           Align(
             alignment: Alignment.topRight, 
           child: Image.asset("assets/images/resources/Vector1.png",height:0.142053*_height)),

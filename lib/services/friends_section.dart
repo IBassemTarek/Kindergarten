@@ -8,7 +8,7 @@ class FriendsSectionServices {
   List<FriendsSectionModel> _friendsSectionSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return FriendsSectionModel(
-        titleA: doc.get('titleA'),
+        titleA: doc.get('titleA'),source: doc.get('source'),
         imageURL: doc.get('imageURL'),
         title: doc.get('title'),
         url:  doc.get('url'),

@@ -32,6 +32,7 @@ class HorizontalList extends StatelessWidget {
          duration: 1000,
          widget:
          PdfScreen(
+           source: listOfPdfs[i].source,
            pdfDriveUrl: listOfPdfs[i].url,
            title: Locales.currentLocale(context).toString() == "en"?listOfPdfs[i].title:listOfPdfs[i].titleA,),
          myAnimation: Curves.elasticInOut),

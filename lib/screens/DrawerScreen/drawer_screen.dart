@@ -89,7 +89,7 @@ class DrawerScreen extends StatelessWidget {
               
             ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal:8.0),
+                padding: EdgeInsets.symmetric(horizontal:8.0,vertical: 10),
                 child: InkWell(
                     onTap: () {
                       if (Locales?.currentLocale(context).toString() == "en")

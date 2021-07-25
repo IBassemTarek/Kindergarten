@@ -43,171 +43,174 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
-    return Scaffold(
-        key: _scaffoldKey,
-        body: ModalProgressHUD(
-          inAsyncCall: Provider.of<ModelHub>(context).isLoading,
-          child: Builder(builder: (context) {
-            return Form(
-              key: _globalKey,
-              child: SafeArea(
-                child: Stack(
-                  children: [
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Image.asset(
-                            'assets/images/signin/Vector-mid.png',
-                            width: 0.4213 * _width)),
-                    Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Image.asset(
-                            'assets/images/signin/Vector-bot.png',
-                            height: 0.140625 * _height)),
-                    SingleChildScrollView(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 0.0507 * _width,
-                            vertical: _height * 0.04911),
-                        child: Wrap(
-                          runSpacing: 0.029 * _height,
-                          runAlignment: WrapAlignment.spaceBetween,
-                          children: [
-                            Header(
-                              title: "Welcome back",
-                              subtitle:
-                                  "Fill your Email and Password or continue with social media",
-                            ),
-                            DataEntry(loginTextFieldLables: loginTextFieldLables),
-                            Container(
-                              alignment: Alignment.bottomRight,
-                              height: 0.030134 * _height,
-                            ),
-                            Builder(
-                              builder: (context) => DashedButton(
-                                ontap: () async {
-                                  _validate(context);
-                                },
-                                title: 'login',
+    return Directionality(
+    textDirection: TextDirection.ltr,  
+      child: Scaffold(
+          key: _scaffoldKey,
+          body: ModalProgressHUD(
+            inAsyncCall: Provider.of<ModelHub>(context).isLoading,
+            child: Builder(builder: (context) {
+              return Form(
+                key: _globalKey,
+                child: SafeArea(
+                  child: Stack(
+                    children: [
+                      Align(
+                          alignment: Alignment.centerRight,
+                          child: Image.asset(
+                              'assets/images/signin/Vector-mid.png',
+                              width: 0.4213 * _width)),
+                      Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Image.asset(
+                              'assets/images/signin/Vector-bot.png',
+                              height: 0.140625 * _height)),
+                      SingleChildScrollView(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 0.0507 * _width,
+                              vertical: _height * 0.04911),
+                          child: Wrap(
+                            runSpacing: 0.029 * _height,
+                            runAlignment: WrapAlignment.spaceBetween,
+                            children: [
+                              Header(
+                                title: "Welcome back",
+                                subtitle:
+                                    "Fill your Email and Password or continue with social media",
                               ),
-                            ),
-                            Center(child: OrLine()),
-                            Center(
-                              child: Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                spacing: 0.157005 * _width,
-                                direction: Axis.horizontal,
+                              DataEntry(loginTextFieldLables: loginTextFieldLables),
+                              Container(
+                                alignment: Alignment.bottomRight,
+                                height: 0.030134 * _height,
+                              ),
+                              Builder(
+                                builder: (context) => DashedButton(
+                                  ontap: () async {
+                                    _validate(context);
+                                  },
+                                  title: 'login',
+                                ),
+                              ),
+                              Center(child: OrLine()),
+                              Center(
+                                child: Wrap(
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  spacing: 0.157005 * _width,
+                                  direction: Axis.horizontal,
+                                  children: [
+                                    OtherAuthMethod(
+                                      imageURL: "assets/images/signin/fb.svg",
+                                      ontap: () async {
+                                        try {
+                                          User user =
+                                              await _auth.signInUsingFaceBook();
+                                          ProfileDataBaseServices().addUser(
+                                              name: user.displayName.toString(),
+                                              uid: user.uid,
+                                              context: context);
+                                          Navigator.pushReplacement(
+                                            context,
+                                            OnBoardingPageRoute(
+                                                duration: 1000,
+                                                widget: Wrapper(),
+                                                myAnimation: Curves.elasticInOut),
+                                          );
+                                        } on FirebaseAuthException catch (e) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            content: Text(e.message.toString()),
+                                          ));
+                                        }
+                                      },
+                                    ),
+                                    OtherAuthMethod(
+                                      imageURL: "assets/images/signin/google.svg",
+                                      ontap: () async {
+                                        try {
+                                          User user =
+                                              await _auth.signInUsingGoogle();
+                                          ProfileDataBaseServices().addUser(
+                                              name: user.displayName.toString(),
+                                              uid: user.uid,
+                                              context: context);
+                                          Navigator.pushReplacement(
+                                            context,
+                                            OnBoardingPageRoute(
+                                                duration: 1000,
+                                                widget: Wrapper(),
+                                                myAnimation: Curves.elasticInOut),
+                                          );
+                                        } on FirebaseAuthException catch (e) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            content: Text(e.message.toString()),
+                                          ));
+                                        }
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                      
+                              Wrap(
                                 children: [
-                                  OtherAuthMethod(
-                                    imageURL: "assets/images/signin/fb.svg",
-                                    ontap: () async {
-                                      try {
-                                        User user =
-                                            await _auth.signInUsingFaceBook();
-                                        ProfileDataBaseServices().addUser(
-                                            name: user.displayName.toString(),
-                                            uid: user.uid,
-                                            context: context);
-                                        Navigator.pushReplacement(
-                                          context,
-                                          OnBoardingPageRoute(
-                                              duration: 1000,
-                                              widget: Wrapper(),
-                                              myAnimation: Curves.elasticInOut),
-                                        );
-                                      } on FirebaseAuthException catch (e) {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(SnackBar(
-                                          content: Text(e.message.toString()),
-                                        ));
-                                      }
-                                    },
+                                  Center(
+                                    child: SignMethodChange(
+                                      currentWidget: "Sign In",
+                                    ),
                                   ),
-                                  OtherAuthMethod(
-                                    imageURL: "assets/images/signin/google.svg",
-                                    ontap: () async {
-                                      try {
-                                        User user =
-                                            await _auth.signInUsingGoogle();
-                                        ProfileDataBaseServices().addUser(
-                                            name: user.displayName.toString(),
-                                            uid: user.uid,
-                                            context: context);
-                                        Navigator.pushReplacement(
-                                          context,
-                                          OnBoardingPageRoute(
-                                              duration: 1000,
-                                              widget: Wrapper(),
-                                              myAnimation: Curves.elasticInOut),
-                                        );
-                                      } on FirebaseAuthException catch (e) {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(SnackBar(
-                                          content: Text(e.message.toString()),
-                                        ));
-                                      }
+                              Center(
+                                child: OutlinedButton (
+                                    onPressed: (){
+                                      Navigator.pushReplacement(
+                                        context,
+                                        OnBoardingPageRoute(
+                                            duration: 1000,
+                                            widget: MultiProvider(
+                            providers: [ 
+                              StreamProvider<UserModel>.value(
+                                value: AuthService().user,
+                                initialData: UserModel(id:""),
+                              ),
+                      StreamProvider<UserData>.value(
+                            value: ProfileDataBaseServices().initchildData(),
+                             initialData: UserData(name: 'Name'),
+                             ),
+                      StreamProvider<List<TechingAids>>.value(
+                            value: TeachingAidsServices().teachingAidsData,
+                             initialData: [], 
+                             ),
+                      
+                                    ChangeNotifierProvider<DrawerScalling>(
+                                create: (context) => DrawerScalling(),
+                              )
+                              ],
+                                              child: MyHomePage()),
+                                            myAnimation: Curves.elasticInOut),
+                                      );
                                     },
-                                  ),
+                                  child: Text("Skip Now",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline2
+                                          ?.copyWith(color: kColor2, fontSize: 14)),
+                                ),
+                              ),
                                 ],
                               ),
-                            ),
-                    
-                            Wrap(
-                              children: [
-                                Center(
-                                  child: SignMethodChange(
-                                    currentWidget: "Sign In",
-                                  ),
-                                ),
-                            Center(
-                              child: OutlinedButton (
-                                  onPressed: (){
-                                    Navigator.pushReplacement(
-                                      context,
-                                      OnBoardingPageRoute(
-                                          duration: 1000,
-                                          widget: MultiProvider(
-                          providers: [ 
-                            StreamProvider<UserModel>.value(
-                              value: AuthService().user,
-                              initialData: UserModel(id:""),
-                            ),
-                    StreamProvider<UserData>.value(
-                          value: ProfileDataBaseServices().initchildData(),
-                           initialData: UserData(name: 'Name'),
-                           ),
-                    StreamProvider<List<TechingAids>>.value(
-                          value: TeachingAidsServices().teachingAidsData,
-                           initialData: [], 
-                           ),
-                    
-                                  ChangeNotifierProvider<DrawerScalling>(
-                              create: (context) => DrawerScalling(),
-                            )
+                      
                             ],
-                                            child: MyHomePage()),
-                                          myAnimation: Curves.elasticInOut),
-                                    );
-                                  },
-                                child: Text("Skip Now",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline2
-                                        ?.copyWith(color: kColor2, fontSize: 14)),
-                              ),
-                            ),
-                              ],
-                            ),
-                    
-                          ],
+                          ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            );
-          }),
-        ));
+              );
+            }),
+          )),
+    );
   }
 
   void _validate(BuildContext context2) async {

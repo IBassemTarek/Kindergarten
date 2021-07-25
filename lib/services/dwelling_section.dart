@@ -1,15 +1,13 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kindergarten/models/pdf_model.dart'; 
 
-class KidsBooksSectionServices {
-  final CollectionReference  kidsBooksSection  = FirebaseFirestore.instance.collection('kidsBooks');
+class DwellingSectionServices {
+  final CollectionReference dwellingSection = FirebaseFirestore.instance.collection('dwellingSection');
 
 
-  List<KidsBooksSectionModel> _kidsBooksSectionSnapShot(QuerySnapshot snapshot) {
+  List<DwellingSection> _dwellingSectionListSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return KidsBooksSectionModel(
+      return DwellingSection(
         titleA: doc.get('titleA'),source: doc.get('source'),
         imageURL: doc.get('imageURL'),
         title: doc.get('title'),
@@ -19,7 +17,7 @@ class KidsBooksSectionServices {
   }
 
   // define a stream of data that give response when user login or logout
-  Stream<List<KidsBooksSectionModel>> get kidsBooksSectionData {
-    return kidsBooksSection.snapshots().map(_kidsBooksSectionSnapShot);
+  Stream<List<DwellingSection>> get dwellingSectionData {
+    return dwellingSection.snapshots().map(_dwellingSectionListSnapShot);
   }
   }

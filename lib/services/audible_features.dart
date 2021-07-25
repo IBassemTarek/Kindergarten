@@ -11,6 +11,7 @@ class AudibleFeaturesServices {
     return snapshot.docs.map((doc) {
       return AudibleFeaturesModel(
         titleA: doc.get('titleA'),
+        source: doc.get('source'),
         imageURL: doc.get('imageURL'),
         title: doc.get('title'),
         url:  doc.get('url'),

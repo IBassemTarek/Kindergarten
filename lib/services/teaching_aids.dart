@@ -11,7 +11,7 @@ class TeachingAidsServices {
         titleA: doc.get('titleA'),
         imageURL: doc.get('imageURL'),
         url:  doc.get('url'),
-        title: doc.get('title'),
+        title: doc.get('title'),source: doc.get('source'),
         ); 
     }).toList();
   }

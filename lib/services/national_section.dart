@@ -12,7 +12,7 @@ class NationalSectionServices {
       return NationalSectionModel(
         titleA: doc.get('titleA'),
         imageURL: doc.get('imageURL'),
-        title: doc.get('title'),
+        title: doc.get('title'),source: doc.get('source'),
         url:  doc.get('url'),
         ); 
     }).toList();

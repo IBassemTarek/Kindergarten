@@ -32,19 +32,13 @@ List<Map> upperdrawerItemsE = [
       },
   },
   {
-    'icon': Icons.apps,
-    'title': 'Useful apps',
+    'icon': Icons.wheelchair_pickup,
+    'title': 'guiding children',
     "function": ({required BuildContext context}){
-      Navigator.push(
-         context,
-         OnBoardingPageRoute(
-         duration: 1000,
-         widget: UsefulApps( 
-         ),
-         myAnimation: Curves.elasticInOut),
-          );
+  
       },
   },
+
 ];
 
 List<Map> upperdrawerItemsA = [
@@ -77,18 +71,12 @@ List<Map> upperdrawerItemsA = [
       },
   },
   {
-    'icon': Icons.apps,
-    'title': 'تطبيقات مفيدة',
+    'icon': Icons.wheelchair_pickup,
+    'title': 'توجيه الأطفال',
     "function": ({required BuildContext context}){
-      Navigator.push(
-         context,
-         OnBoardingPageRoute(
-         duration: 1000,
-         widget: UsefulApps( 
-         ),
-         myAnimation: Curves.elasticInOut),
-          );
+  
       },
   },
+
 ];
 

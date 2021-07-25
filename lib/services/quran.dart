@@ -13,7 +13,7 @@ class QuranServices {
         titleA: doc.get('titleA'),
         imageURL: doc.get('imageURL'),
         title: doc.get('title'),
-        url:  doc.get('url'),
+        url:  doc.get('url'),source: doc.get('source'),
         ); 
     }).toList();
   }

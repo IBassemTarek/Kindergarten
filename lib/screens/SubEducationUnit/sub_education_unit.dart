@@ -29,6 +29,8 @@ class SubEducationUnit extends StatelessWidget {
     final missionURLs = Provider.of<List<MissionModel>>(context);
     final visionURLs = Provider.of<List<VisionModel>>(context);
     final quranURLs = Provider.of<List<QuranModel>>(context);
+    final dwellingURLs = Provider.of<List<DwellingSection>>(context);
+    final sandURLs = Provider.of<List<SandSection>>(context);
   
     final _height = MediaQuery.of(context).size.height; 
     if (title == "Welcome Section")
@@ -57,10 +59,13 @@ class SubEducationUnit extends StatelessWidget {
     sectionUrls = audibleFeaturesURLs;    
     else if (title == "Mission")
     sectionUrls = missionURLs;  
-
     else if (title == "Vision")
     sectionUrls = visionURLs;    
-    
+    else if (title == "Dwelling section")
+    sectionUrls = dwellingURLs;   
+    else if (title ==  "Sand section")
+    sectionUrls = sandURLs;   
+  
     return Scaffold(
       body: Container(
             color: kColor9, 

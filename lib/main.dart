@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:is_first_run/is_first_run.dart';
+import 'package:kindergarten/services/dwelling_section.dart';
+import 'package:kindergarten/services/sand_section.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_locales/flutter_locales.dart';
 
@@ -71,6 +73,14 @@ class MyApp extends StatelessWidget {
        ),
         StreamProvider<List<SoonProvided>>.value(
       value: SoonProvidedServices().soonProvidedData,
+       initialData: [], 
+       ),
+        StreamProvider<List<DwellingSection>>.value(
+      value: DwellingSectionServices().dwellingSectionData,
+       initialData: [], 
+       ),
+        StreamProvider<List<SandSection>>.value(
+      value: SandSectionServices().sandSectionData,
        initialData: [], 
        ),
         StreamProvider<List<MissionModel>>.value(
