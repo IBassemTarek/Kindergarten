@@ -10,8 +10,8 @@ import 'package:flutter_locales/flutter_locales.dart';
 
 //local
 
-import '../../services/quran.dart';
-import '../../settings.dart'; 
+import 'services/quran.dart';
+import 'settings.dart'; 
 import 'models/user_model.dart';
 import 'services/audible_features.dart';
 import 'services/certificates_services.dart';
@@ -27,22 +27,22 @@ import 'services/soonProvided.dart';
 import 'services/vision_section.dart';
 import 'services/water_section.dart';
 import 'services/welcome_section.dart'; 
-import '../../models/certificate_model.dart';
-import '../../models/events_model.dart';
-import '../../models/gallery_model.dart';
-import '../../models/pdf_model.dart';
-import '../../services/enrichment_programs.dart';
-import '../../services/family_section.dart';
-import '../../services/friends_section.dart';
-import '../../services/kids_book_section.dart';
-import '../../services/letters.dart';
-import '../../services/training_courses.dart';
-import '../../services/useful_apps.dart';
-import '../../services/worksheet_model.dart';
-import '../../services/youtube.dart'; 
-import '../../screens/Onboarding/onboarding_screen.dart';
-import '../../screens/wrapper/warapper.dart';
-import '../../services/auth.dart'; 
+import 'models/certificate_model.dart';
+import 'models/events_model.dart';
+import 'models/gallery_model.dart';
+import 'models/pdf_model.dart';
+import 'services/enrichment_programs.dart';
+import 'services/family_section.dart';
+import 'services/friends_section.dart';
+import 'services/kids_book_section.dart';
+import 'services/letters.dart';
+import 'services/training_courses.dart';
+import 'services/useful_apps.dart';
+import 'services/worksheet_model.dart';
+import 'services/youtube.dart'; 
+import 'screens/Onboarding/onboarding_screen.dart';
+import 'screens/wrapper/warapper.dart';
+import 'services/auth.dart'; 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -175,7 +175,7 @@ class MyApp extends StatelessWidget {
             supportedLocales: Locales.supportedLocales,
             locale: locale,
           debugShowCheckedModeBanner: false,
-          title: 'Kindergarten',
+          title: 'عالم رياض الاطفال',
           theme: textData, 
           home: SplashScreen(),
         ),
@@ -185,7 +185,7 @@ class MyApp extends StatelessWidget {
 }
 
 
-class SplashScreen extends StatefulWidget { 
+class SplashScreen extends StatefulWidget {
 
   @override
   _SplashScreenState createState() => _SplashScreenState();

@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:554953691370:android:2abc969d3738b9ce178793",
+        "mobilesdk_app_id": "1:554953691370:android:e099ad334a7973f0178793",
         "android_client_info": {
-          "package_name": "com.kindergarten.kindergarten_app"
+          "package_name": "com.kindergarten.kindergarten"
         }
       },
       "oauth_client": [
         {
-          "client_id": "554953691370-t1r00f51ring6i1dvpo0a6185jlpnut4.apps.googleusercontent.com",
+          "client_id": "554953691370-vqd15lgb5hphka56vtbnk3faks4ant2q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.kindergarten.kindergarten_app",
+            "package_name": "com.kindergarten.kindergarten",
             "certificate_hash": "452cfc0ee3b77be731769add5e262a11e68a4168"
           }
         },
