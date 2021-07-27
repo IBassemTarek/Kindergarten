@@ -1,10 +1,10 @@
  
 import 'package:flutter/material.dart';
-import 'package:kindergarten/screens/EducationUnit/grid_items.dart';
-import 'package:kindergarten/screens/Home/educatioon_units.dart';
+import 'package:kindergarten/screens/EducationUnit/grid_items.dart'; 
 import 'package:kindergarten/screens/commonWidget/app_bar.dart'; 
 
-import '../../settings.dart'; 
+import '../../settings.dart';
+import 'last_meeting_list.dart'; 
 
 
 class LastMeeting extends StatelessWidget {
@@ -24,7 +24,7 @@ class LastMeeting extends StatelessWidget {
               runSpacing: 0.0390625*_height,  
               children: <Widget>[
                 TopBar(title: "last meeting",staticTitle: true), 
-                GridList(listOfData: educationUnitData,navigation: true,), 
+                GridList(listOfData: lastMeetingData,navigation: true,), 
               ],
             ),
           ),

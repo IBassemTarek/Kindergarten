@@ -210,7 +210,7 @@ Future<bool> isFirstTime() async {
  future: isFirstTime(),
  builder: (ctx,snapshot) {
        if (snapshot.hasData) {
-      return firstRun?OnBoarding()
+      return !firstRun?OnBoarding()
       :MultiProvider(
       providers: [
         StreamProvider<UserModel>.value(

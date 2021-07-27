@@ -104,6 +104,7 @@ List<TabModel> servicesUnitData = [
                   OnBoardingPageRoute(
                     duration: 1000,
                     widget: SubEducationUnit(
+                      parent: "",
                       title: "Quran and biography",
                     ),
                     myAnimation: Curves.elasticInOut),
