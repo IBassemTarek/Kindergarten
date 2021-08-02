@@ -7,6 +7,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:554953691370:android:b8167e3703504614178793",
+        "android_client_info": {
+          "package_name": "com.itgo.kindergartenworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554953691370-supchdj5k0cr66n6lv1p0crnmschov8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itgo.kindergartenworld",
+            "certificate_hash": "452cfc0ee3b77be731769add5e262a11e68a4168"
+          }
+        },
+        {
+          "client_id": "554953691370-2v03dgp48c969b72lupdr9dl3knqrkrr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk6ZnRGpGyNzVKoY70OuL8GZSBH2YnFmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554953691370-2v03dgp48c969b72lupdr9dl3knqrkrr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:554953691370:android:e099ad334a7973f0178793",
         "android_client_info": {
           "package_name": "com.kindergarten.kindergarten"

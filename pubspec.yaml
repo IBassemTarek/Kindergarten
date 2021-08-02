@@ -2,7 +2,7 @@ name: kindergarten
 description: A new Flutter project.
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.0
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -54,8 +54,10 @@ flutter:
     - assets/images/perparation/
     - assets/images/resources/
     - assets/images/flags/
+    - assets/images/socialIcons/
     - assets/locales/en.json
     - assets/locales/ar.json
+
   fonts:
     - family: arialBold
       fonts:
