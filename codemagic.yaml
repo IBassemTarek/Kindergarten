@@ -1,0 +1,13 @@
+workflows:
+  publish-ios-and-android-to-firebase-app-distribution:
+    publishing:
+      firebase:
+        firebase_token: Encrypted(Z0FBQUFBQmhEWUpyR2RxeUhzRHFKQzkwN2F5WDRHMTROVUV5aWxlLUZxLVdNalpUVTZHY094TjVyS1JJTXNzZXZFTTVsVWlkMTd1Vjdqb0d1Zk01NlBZNFdVMUY2SUZLRWNWbWs3MUNXSHA5bUpieG15blNRODVlRFpZRGRyd3Uzbk9sd1l0VkRfR1ViSERMZ09oaFFndmw2NndiR1RfS3c4bzhGNWRwcmNCZUp4QVg5dlpkb0wyU2tsY3dJV2NvWHoxRElid2lrQ3N2Ym9rbWhTMS1jcnRObF9IaDE1OWt3dz09)
+        android:
+          app_id: 1:554953691370:android:b8167e3703504614178793
+          groups: 
+            - android-testers
+        ios:
+          app_id: 1:554953691370:ios:23c50123439e7526178793
+          groups:
+            - test
