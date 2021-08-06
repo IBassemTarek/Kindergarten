@@ -3,6 +3,7 @@ import 'package:kindergarten/screens/About/about.dart';
 import 'package:kindergarten/screens/DrawerScreen/pop_up_dialog.dart';
 import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share/share.dart';
 
 List<Map> upperdrawerItemsE = [
   {
@@ -21,12 +22,21 @@ List<Map> upperdrawerItemsE = [
   {
     'icon': Icons.share,
     'title': 'Share App',
-    "function": ({required BuildContext context}) {},
+    "function": ({required BuildContext context}) {
+      Share.share(
+          "https://play.google.com/store/apps/details?id=com.itgo.kindergartenworld");
+    },
   },
   {
     'icon': Icons.star_rate,
     'title': 'Rating Us',
-    "function": ({required BuildContext context}) {},
+    "function": ({required BuildContext context}) async {
+      await canLaunch(
+              "https://play.google.com/store/apps/details?id=com.itgo.kindergartenworld")
+          ? await launch(
+              "https://play.google.com/store/apps/details?id=com.itgo.kindergartenworld")
+          : throw 'Could not launch url';
+    },
   },
   {
     'icon': Icons.chat,
@@ -69,12 +79,21 @@ List<Map> upperdrawerItemsA = [
   {
     'icon': Icons.share,
     'title': 'شارك التطبيق',
-    "function": ({required BuildContext context}) {},
+    "function": ({required BuildContext context}) {
+      Share.share(
+          "https://play.google.com/store/apps/details?id=com.itgo.kindergartenworld");
+    },
   },
   {
     'icon': Icons.star_rate,
     'title': 'تقييمنا',
-    "function": ({required BuildContext context}) {},
+    "function": ({required BuildContext context}) async {
+      await canLaunch(
+              "https://play.google.com/store/apps/details?id=com.itgo.kindergartenworld")
+          ? await launch(
+              "https://play.google.com/store/apps/details?id=com.itgo.kindergartenworld")
+          : throw 'Could not launch url';
+    },
   },
   {
     'icon': Icons.chat,

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>554953691370-fjb8hb3ul5tfr272o837prmb4ihtmkmp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.554953691370-fjb8hb3ul5tfr272o837prmb4ihtmkmp</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>554953691370-supchdj5k0cr66n6lv1p0crnmschov8o.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDowAqItqFX-Lh_gOMiv7WqWlDmS2_LnJQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>554953691370</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.itgo.kindergartenworld</string>
+	<key>PROJECT_ID</key>
+	<string>kindergarten-3f5ab</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kindergarten-3f5ab.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:554953691370:ios:23c50123439e7526178793</string>
+</dict>
+</plist>

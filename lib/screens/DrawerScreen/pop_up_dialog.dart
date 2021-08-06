@@ -69,7 +69,8 @@ final List<SocialMediaIcon> socialMediaLinks = [
   ),
   SocialMediaIcon(
     iconURL: "assets/images/socialIcons/linkedin.svg",
-    url: "https://www.linkedin.com/in/zainab-alsaggaf-833373203/",
+    url:
+        "https://www.linkedin.com/in/%D8%B2%D9%8A%D9%86%D8%A8-%D8%A7%D9%84%D8%B3%D9%82%D8%A7%D9%81-833373203/",
   ),
   SocialMediaIcon(
     iconURL: "assets/images/socialIcons/gmail.svg",
