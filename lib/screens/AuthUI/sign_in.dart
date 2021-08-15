@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:kindergarten/models/AuthData/auth_data.dart';
 import 'package:kindergarten/models/drawer_scalling.dart';
 import 'package:kindergarten/models/modalprogrsshub.dart';
-import 'package:kindergarten/models/pdf_model.dart';
 import 'package:kindergarten/models/user_model.dart';
 import 'package:kindergarten/screens/Home/home_page.dart';
 import 'package:kindergarten/screens/shared/dashed_botton.dart';
 import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
 import 'package:kindergarten/screens/wrapper/warapper.dart';
 import 'package:kindergarten/services/auth.dart';
-import 'package:kindergarten/services/teaching_aids.dart';
 import 'package:kindergarten/services/users.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
@@ -176,10 +174,6 @@ class SignIn extends StatelessWidget {
                       StreamProvider<UserData>.value(
                             value: ProfileDataBaseServices().initchildData(),
                              initialData: UserData(name: 'Name'),
-                             ),
-                      StreamProvider<List<TechingAids>>.value(
-                            value: TeachingAidsServices().teachingAidsData,
-                             initialData: [], 
                              ),
                       
                                     ChangeNotifierProvider<DrawerScalling>(

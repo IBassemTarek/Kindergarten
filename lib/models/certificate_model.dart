@@ -1,4 +1,6 @@
 class CertificateModel {
   final String url;
-  CertificateModel({required this.url});
+  final String pdf;
+  final String source;
+  CertificateModel({required this.url,required this.source,required this.pdf});
 }

@@ -2,14 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kindergarten/models/events_model.dart';
 
 class EventsServices {
-  final CollectionReference  events  = FirebaseFirestore.instance.collection('events');
-
+  final CollectionReference events =
+      FirebaseFirestore.instance.collection('events');
 
   List<EventsModel> _eventsSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return EventsModel( 
-        url:  doc.get('url'),
-        ); 
+      return EventsModel(
+        urlImage: doc.get('urlImage'),
+        
+      );
     }).toList();
   }
 
@@ -17,4 +18,4 @@ class EventsServices {
   Stream<List<EventsModel>> get eventsData {
     return events.snapshots().map(_eventsSnapShot);
   }
-  }
+}

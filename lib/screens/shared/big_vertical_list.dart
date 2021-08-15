@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_locales/flutter_locales.dart';
 import 'package:kindergarten/screens/Home/info_cell.dart';
 import 'package:kindergarten/screens/pdf/pdf_screen.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'pageRouteAnimation.dart'; 
 
@@ -27,15 +26,14 @@ class BigVerticalList extends StatelessWidget {
         itemBuilder:  (context,i) {
           return InkWell(
             onTap: ()async{
-              apps?  
-              await canLaunch(listOfPdfs[i].url) ? await launch(listOfPdfs[i].url) : throw 'Could not launch ${listOfPdfs[i].url}'
-              : 
+            
       Navigator.push(
          context,
          OnBoardingPageRoute(
          duration: 1000,
          widget:
          PdfScreen(
+           whatsApp: false,
            source: listOfPdfs[i].source,
            pdfDriveUrl: listOfPdfs[i].url,
            title: Locales.currentLocale(context).toString() == "en"?listOfPdfs[i].title:listOfPdfs[i].titleA,),

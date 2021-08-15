@@ -32,7 +32,7 @@ class InfoUnit extends StatelessWidget {
               return SoonHorizontalList(listOfPdfs: listOfPdfs,);
             }
             else {
-              return HorizontalList(listOfData:listOfData,navigation: navigation,listOfPdfs: listOfPdfs,);
+              return HorizontalList(whatsApp:(sectionTitle=="Training courses"|| sectionTitle == "Enrichment programs")?true:false,listOfData:listOfData,navigation: navigation,listOfPdfs: listOfPdfs,);
             }
           }),
           

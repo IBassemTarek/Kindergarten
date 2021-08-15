@@ -3,7 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:is_first_run/is_first_run.dart';
+import 'package:kindergarten/services/preparing_class.dart';
 import 'package:kindergarten/services/remotly_model.dart';
+import 'package:kindergarten/services/various_means.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_locales/flutter_locales.dart';
 
@@ -63,7 +65,16 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: lastStreams +
           preparingStreams +
+         
           [
+                        StreamProvider<List<VariousMeansModel>>.value(
+              value: VariousMeansServices().variousMeansData,
+              initialData: [],
+            ),
+                        StreamProvider<List<PreparingClassesModel>>.value(
+              value: PreparingClassesServices().preparingClassesData,
+              initialData: [],
+            ),
             StreamProvider<List<RemotlyModel>>.value(
               value: RemotlyServices().remotlyData,
               initialData: [],

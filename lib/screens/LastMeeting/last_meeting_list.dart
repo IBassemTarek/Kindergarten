@@ -6,7 +6,7 @@ import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
 
 List<TabModel> lastMeetingData = [
     TabModel(
-      imageURL: "assets/images/education/1.png",
+      imageURL: "assets/images/lastMeeting/1.jpg",
       function: ({required BuildContext context}) async {
              Navigator.push(
                  context,
@@ -14,15 +14,15 @@ List<TabModel> lastMeetingData = [
                     duration: 1000,
                     widget: SubEducationUnit(
                       parent: "LastMeeting",
-                      title: "Welcome Section",
+                      title: "Games",
                     ),
                     myAnimation: Curves.elasticInOut),
              );
       },
-      title: "Welcome Section"
+      title: "Games"
     ),
     TabModel(
-      imageURL: "assets/images/education/2.png",
+      imageURL: "assets/images/lastMeeting/2.jpg",
       function: ({required BuildContext context}) async {
              Navigator.push(
                  context,
@@ -30,15 +30,15 @@ List<TabModel> lastMeetingData = [
                     duration: 1000,
                     widget: SubEducationUnit(
            parent: "LastMeeting",
-                      title: "Friends section",
+                      title: "Finger games",
                     ),
                     myAnimation: Curves.elasticInOut),
              );
       },
-      title: "Friends section"
+      title: "Finger games"
     ),
     TabModel(
-      imageURL: "assets/images/education/3.png",
+      imageURL: "assets/images/lastMeeting/3.jpg",
       function: ({required BuildContext context}) async {
              Navigator.push(
                  context,
@@ -46,15 +46,15 @@ List<TabModel> lastMeetingData = [
                     duration: 1000,
                     widget: SubEducationUnit(
            parent: "LastMeeting",
-                      title: "Family section",
+                      title: "Chants",
                     ),
                     myAnimation: Curves.elasticInOut),
              );
       },
-      title: "Family section"
+      title: "Chants"
     ),
     TabModel(
-      imageURL: "assets/images/education/4.png",
+      imageURL: "assets/images/lastMeeting/4.png",
       function: ({required BuildContext context}) async {
              Navigator.push(
                  context,
@@ -62,139 +62,12 @@ List<TabModel> lastMeetingData = [
                     duration: 1000,
                     widget: SubEducationUnit(
            parent: "LastMeeting",
-                      title: "Hands section",
+                      title: "Stories",
                     ),
                     myAnimation: Curves.elasticInOut),
              );
       },
-      title: "Hands section"
+      title: "Stories"
     ),
-    TabModel(
-      imageURL: "assets/images/education/5.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-           parent: "LastMeeting",
-                      title: "Kids clothes section",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "Kids clothes section"
-    ),
-    TabModel(
-      imageURL: "assets/images/education/6.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-           parent: "LastMeeting",
-                      title: "Kids book",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "Kids book"
-    ),
-    TabModel(
-      imageURL: "assets/images/education/7.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-           parent: "LastMeeting",
-                      title: "National section",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "National section"
-    ),
-    TabModel(
-      imageURL: "assets/images/education/8.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-           parent: "LastMeeting",
-                      title:"Food section",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "Food section"
-    ),
-    TabModel(
-      imageURL: "assets/images/education/9.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-           parent: "LastMeeting",
-                      title: "health & safety",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "health & safety"
-    ),
-    TabModel(
-      imageURL: "assets/images/education/10.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-           parent: "LastMeeting",
-                      title: "Water section",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "Water section"
-    ),
-    TabModel(
-      imageURL: "assets/images/education/11.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-           parent: "LastMeeting",
-                      title: "Sand section",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "Sand section"
-    ),
-    TabModel(
-      imageURL: "assets/images/education/12.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-           parent: "LastMeeting",
-                      title: "Dwelling section",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "Dwelling section"
-    ), 
+ 
 ];  

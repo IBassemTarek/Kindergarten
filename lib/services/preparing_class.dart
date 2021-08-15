@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kindergarten/models/pdf_model.dart'; 
 
-class UsefulAppsServices {
-  final CollectionReference  usefulApps  = FirebaseFirestore.instance.collection('usefulApps');
+class PreparingClassesServices {
+  final CollectionReference  preparingClasses  = FirebaseFirestore.instance.collection('Preparing classes');
 
 
-  List<UsefulAppsModel> _usefulAppsSnapShot(QuerySnapshot snapshot) {
+  List<PreparingClassesModel> _preparingClassesSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return UsefulAppsModel(
+      return PreparingClassesModel(
         source: doc.get('source'),
         titleA: doc.get('titleA'),
         imageURL: doc.get('imageURL'),
@@ -18,7 +18,7 @@ class UsefulAppsServices {
   }
 
   // define a stream of data that give response when user login or logout
-  Stream<List<UsefulAppsModel>> get usefulAppsData {
-    return usefulApps.snapshots().map(_usefulAppsSnapShot);
+  Stream<List<PreparingClassesModel>> get preparingClassesData {
+    return preparingClasses.snapshots().map(_preparingClassesSnapShot);
   }
   }

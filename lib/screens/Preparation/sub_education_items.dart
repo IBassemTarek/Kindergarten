@@ -4,38 +4,38 @@ import 'package:kindergarten/screens/SubEducationUnit/sub_education_unit.dart';
 import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';  
 
 List<TabModel> preparationData =  [   
-    TabModel(
-      imageURL: "assets/images/perparation/1.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-                      parent: "preparation",
-                      title: "Vision",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "Vision"
-    ),
-    TabModel(
-      imageURL: "assets/images/perparation/2.png",
-      function: ({required BuildContext context}) async {
-             Navigator.push(
-                 context,
-                  OnBoardingPageRoute(
-                    duration: 1000,
-                    widget: SubEducationUnit(
-                      parent: "preparation",
-                      title:"Mission",
-                    ),
-                    myAnimation: Curves.elasticInOut),
-             );
-      },
-      title: "Mission"
-    ),
+    // TabModel(
+    //   imageURL: "assets/images/perparation/1.png",
+    //   function: ({required BuildContext context}) async {
+    //          Navigator.push(
+    //              context,
+    //               OnBoardingPageRoute(
+    //                 duration: 1000,
+    //                 widget: SubEducationUnit(
+    //                   parent: "preparation",
+    //                   title: "Vision",
+    //                 ),
+    //                 myAnimation: Curves.elasticInOut),
+    //          );
+    //   },
+    //   title: "Vision"
+    // ),
+    // TabModel(
+    //   imageURL: "assets/images/perparation/2.png",
+    //   function: ({required BuildContext context}) async {
+    //          Navigator.push(
+    //              context,
+    //               OnBoardingPageRoute(
+    //                 duration: 1000,
+    //                 widget: SubEducationUnit(
+    //                   parent: "preparation",
+    //                   title:"Mission",
+    //                 ),
+    //                 myAnimation: Curves.elasticInOut),
+    //          );
+    //   },
+    //   title: "Mission"
+    // ),
     TabModel(
       imageURL: "assets/images/perparation/3.png",
       function: ({required BuildContext context}) async {
@@ -45,12 +45,12 @@ List<TabModel> preparationData =  [
                     duration: 1000,
                     widget: SubEducationUnit(
                       parent: "preparation",
-                      title: "Audible features",
+                      title: "File processing",
                     ),
                     myAnimation: Curves.elasticInOut),
              );
       },
-      title: "Audible features"
+      title: "File processing"
     ), 
    TabModel(
       imageURL: "assets/images/education/1.png",

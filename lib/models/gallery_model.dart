@@ -1,4 +1,5 @@
 class GalleryModel {
   final String url;
-  GalleryModel({required this.url});
+  final String pdf;
+  GalleryModel({required this.url,required this.pdf});
 }

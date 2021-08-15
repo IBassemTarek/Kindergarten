@@ -9,7 +9,9 @@ class CertificateServices {
 
   List<CertificateModel> _certificateSnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return CertificateModel( 
+      return CertificateModel(
+        pdf: doc.get('pdf'),
+        source: doc.get('source'),
         url:  doc.get('url'),
         ); 
     }).toList();

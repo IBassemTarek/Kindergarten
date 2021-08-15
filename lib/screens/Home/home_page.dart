@@ -7,6 +7,7 @@ import 'package:kindergarten/screens/DrawerScreen/page_have_drawer.dart';
 import 'package:kindergarten/screens/Home/welcome_section.dart';
 import 'package:kindergarten/screens/commonWidget/app_bar.dart';
 import 'package:kindergarten/screens/shared/info_unit.dart';
+import 'package:kindergarten/teachingAids/teachingAids.dart';
 import 'package:provider/provider.dart'; 
 
 import '../../settings.dart';
@@ -37,8 +38,7 @@ class HomePage extends StatelessWidget {
  
 
   @override
-  Widget build(BuildContext context) {  
-    final teachingAids = Provider.of<List<TechingAids>>(context);
+  Widget build(BuildContext context) {   
     final soonProvided = Provider.of<List<SoonProvided>>(context);
     
     final _height = MediaQuery.of(context).size.height; 
@@ -67,17 +67,20 @@ class HomePage extends StatelessWidget {
               
               OtherServices(),
               
-              
-              teachingAids.isEmpty?Center(child: CircularProgressIndicator()):  
-              Align(
-                alignment: Locales.currentLocale(context).toString() == "en"?Alignment.topLeft:Alignment.topRight,
-                child: InfoUnit(
-                  listOfPdfs: teachingAids, 
-                  navigation: false,
-                  listOfData: [],
-                  sectionTitle: "Teaching Aids",
-                ),
-              ),
+             Align(
+               alignment: Locales.currentLocale(context).toString() == "en"?Alignment.topLeft:Alignment.topRight,
+               child: TeachingAids()),
+
+              // teachingAids.isEmpty?Center(child: CircularProgressIndicator()):  
+              // Align(
+              //   alignment: Locales.currentLocale(context).toString() == "en"?Alignment.topLeft:Alignment.topRight,
+              //   child: InfoUnit(
+              //     listOfPdfs: teachingAids, 
+              //     navigation: false,
+              //     listOfData: [],
+              //     sectionTitle: "Teaching Aids",
+              //   ),
+              // ),
              
              
           // Align(

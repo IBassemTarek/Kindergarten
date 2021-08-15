@@ -112,6 +112,21 @@ List<TabModel> servicesUnitData = [
       },
       title: "Quran and biography"),
   TabModel(
+      imageURL: "assets/images/services/9.png",
+      function: ({required BuildContext context}) {
+        Navigator.push(
+          context,
+          OnBoardingPageRoute(
+              duration: 1000,
+              widget: SubEducationUnit(
+                parent: "",
+                title: "Events",
+              ),
+              myAnimation: Curves.elasticInOut),
+        );
+      },
+      title: "Events"),
+  TabModel(
       imageURL: "assets/images/services/8.png",
       function: ({required BuildContext context}) {
         Navigator.push(

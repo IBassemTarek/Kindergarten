@@ -10,6 +10,7 @@ class GalleryServices {
   List<GalleryModel> _gallerySnapShot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return GalleryModel( 
+        pdf: doc.get('pdf'),
         url:  doc.get('url'),
         ); 
     }).toList();

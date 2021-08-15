@@ -1,4 +1,4 @@
 class EventsModel {
-  final String url;
-  EventsModel({required this.url});
+  final String urlImage;
+  EventsModel({ required this.urlImage});
 }

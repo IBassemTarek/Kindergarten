@@ -80,7 +80,7 @@ class TopBar extends StatelessWidget {
                 alignment: Alignment.center,
                 child: staticTitle?LocaleText(
                   title,
-                  style: Theme.of(context).textTheme.headline3?.copyWith(fontSize: 21),
+                  style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 18,color: kColor6,),
                 ):Text(
                   title,
                   style: Theme.of(context).textTheme.headline3?.copyWith(fontSize: 21),

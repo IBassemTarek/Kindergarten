@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kindergarten/models/last_pdf_models.dart'; 
 
 class FriendsSectionLateServices {
-  final CollectionReference  friendsSection  = FirebaseFirestore.instance.collection('FriendsSectionLast');
+  final CollectionReference  friendsSection  = FirebaseFirestore.instance.collection('fingerGamesLast');
 
 
   List<FriendsSectionLastModel> _friendsSectionSnapShot(QuerySnapshot snapshot) {

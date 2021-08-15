@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_locales/flutter_locales.dart';
 import 'package:kindergarten/models/certificate_model.dart';
 import 'package:kindergarten/screens/pdf/pdf_screen.dart';
+import 'package:kindergarten/screens/shared/pageRouteAnimation.dart';
 import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -26,36 +27,56 @@ class CertificatesCarsouel extends StatelessWidget {
         CarouselSlider.builder(
       itemCount: certificates.length,
   itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-    Container(
-         height: 0.279*_height,
-         width: 0.90338*_width,
-         decoration: BoxDecoration(
-         color: Colors.black12,
-         borderRadius: BorderRadius.circular(15),
-        //  image: DecorationImage(
-        //    fit: BoxFit.fill,
-        //    image: NetworkImage(driveURLTransfer(certificates[itemIndex].url))
-        //  )
-         ),
-             child: CachedNetworkImage(
-          fit: BoxFit.fill,
-      placeholder: (context, url) => Center(
-      child: SizedBox(
-        width: 30,
-        height: 30,
-        child: CircularProgressIndicator(
-        )),
-    ), 
-    imageUrl:  driveURLTransfer(certificates[itemIndex].url),
-    errorWidget: (___, _, __) {
-                return  Container( 
-                        child: Image.asset(
-                          'assets/images/No-Image.png',
-                          fit: BoxFit.cover),
-                );
-              },
-   
-),
+    InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        OnBoardingPageRoute(
+                            duration: 1000,
+                            widget: PdfScreen(
+                              whatsApp: false,
+                              source: certificates[itemIndex].source,
+                              pdfDriveUrl: certificates[itemIndex].pdf,
+                              title:
+                                  Locales?.currentLocale(context).toString() ==
+                                          "ar"
+                                      ? "تفاصيل الشهادة"
+                                      : "certificate Details",
+                            ),
+                            myAnimation: Curves.elasticInOut),
+                      );
+                    },
+      child: Container(
+           height: 0.279*_height,
+           width: 0.90338*_width,
+           decoration: BoxDecoration(
+           color: Colors.black12,
+           borderRadius: BorderRadius.circular(15),
+          //  image: DecorationImage(
+          //    fit: BoxFit.fill,
+          //    image: NetworkImage(driveURLTransfer(certificates[itemIndex].url))
+          //  )
+           ),
+               child: CachedNetworkImage(
+            fit: BoxFit.fill,
+        placeholder: (context, url) => Center(
+        child: SizedBox(
+          width: 30,
+          height: 30,
+          child: CircularProgressIndicator(
+          )),
+      ), 
+      imageUrl:  driveURLTransfer(certificates[itemIndex].url),
+      errorWidget: (___, _, __) {
+                  return  Container( 
+                          child: Image.asset(
+                            'assets/images/No-Image.png',
+                            fit: BoxFit.cover),
+                  );
+                },
+       
+    ),
+      ),
     ),
       options: CarouselOptions(
       autoPlay: true,

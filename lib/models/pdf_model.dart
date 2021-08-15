@@ -1,16 +1,4 @@
-class TechingAids {
-  final String url;
-  final String title;
-  final String titleA;
-  final String imageURL;
-  final String source;
-  TechingAids(
-      {required this.url,
-      required this.imageURL,
-      required this.title,
-      required this.titleA,
-      required this.source});
-}
+
 
 class SandSection {
   final String url;
@@ -19,6 +7,21 @@ class SandSection {
   final String imageURL;
   final String source;
   SandSection(
+      {required this.url,
+      required this.imageURL,
+      required this.title,
+      required this.titleA,
+      required this.source});
+}
+
+
+class EventsSection {
+  final String url;
+  final String title;
+  final String titleA;
+  final String imageURL;
+  final String source;
+  EventsSection(
       {required this.url,
       required this.imageURL,
       required this.title,
@@ -53,9 +56,41 @@ class UsefulAppsModel {
   final String title;
   final String imageURL;
   final String titleA;
+  final String source;
 
   UsefulAppsModel(
       {required this.url,
+      required this.source,
+      required this.imageURL,
+      required this.title,
+      required this.titleA});
+}
+
+class PreparingClassesModel {
+  final String url;
+  final String title;
+  final String imageURL;
+  final String titleA;
+  final String source;
+
+  PreparingClassesModel(
+      {required this.url,
+      required this.source,
+      required this.imageURL,
+      required this.title,
+      required this.titleA});
+}
+
+class VariousMeansModel {
+  final String url;
+  final String title;
+  final String imageURL;
+  final String titleA;
+  final String source;
+
+  VariousMeansModel(
+      {required this.url,
+      required this.source,
       required this.imageURL,
       required this.title,
       required this.titleA});

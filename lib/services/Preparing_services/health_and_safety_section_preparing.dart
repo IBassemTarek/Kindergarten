@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kindergarten/models/preparing_pdf_models.dart'; 
 
 class HealthSectionPreparingServices {
-  final CollectionReference  healthSection  = FirebaseFirestore.instance.collection('healthSectionPreparing');
+  final CollectionReference  healthSection  = FirebaseFirestore.instance.collection('healthSection');
 
 
   List<HealthSectionPreparingModel> _healthSectionSnapShot(QuerySnapshot snapshot) {

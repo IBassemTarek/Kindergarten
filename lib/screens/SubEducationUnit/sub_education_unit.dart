@@ -31,28 +31,13 @@ class SubEducationUnit extends StatelessWidget {
     final dwellingURLs = Provider.of<List<DwellingSection>>(context);
     final sandURLs = Provider.of<List<SandSection>>(context);
 
-
-      
-    
-    final audibleFeaturesURLs = Provider.of<List<AudibleFeaturesModel>>(context);
-    final missionURLs = Provider.of<List<MissionModel>>(context);
-    final visionURLs = Provider.of<List<VisionModel>>(context);
     final quranURLs = Provider.of<List<QuranModel>>(context);
 
     final _height = MediaQuery.of(context).size.height; 
-    final welcomeLastURLs = Provider.of<List<WelcomeSectionLastModel>>(context);
-    final friendsLastURLs = Provider.of<List<FriendsSectionLastModel>>(context);
-    final familyLastURLs = Provider.of<List<FamilySectionLastModel>>(context);
-    final handsLastURLs = Provider.of<List<HandsSectionLastModel>>(context);
-    final kidsClothesLastURLs = Provider.of<List<KidsClothesSectionLastModel>>(context);
-    final kidsBooksLastURLs = Provider.of<List<KidsBooksSectionLastModel>>(context);
-    final nationalLastURLs = Provider.of<List<NationalSectionLastModel>>(context);
-    final foodLastURLs = Provider.of<List<FoodSectionLastModel>>(context);
-    final healthLastURLs = Provider.of<List<HealthSectionLastModel>>(context);
-    final waterLastURLs = Provider.of<List<WaterSectionLastModel>>(context);
-    final dwellingLastURLs = Provider.of<List<DwellingSectionLast>>(context);
-    final sandLastURLs = Provider.of<List<SandSectionLast>>(context);
-
+    final gamesLastURLs = Provider.of<List<WelcomeSectionLastModel>>(context);
+    final fingerGamesLastURLs = Provider.of<List<FriendsSectionLastModel>>(context);
+    final chantsLastURLs = Provider.of<List<FamilySectionLastModel>>(context);
+    final storiesLastURLs = Provider.of<List<HandsSectionLastModel>>(context);
 
     final welcomePreparingURLs = Provider.of<List<WelcomeSectionPreparingModel>>(context);
     final friendsPreparingURLs = Provider.of<List<FriendsSectionPreparingModel>>(context);
@@ -66,10 +51,18 @@ class SubEducationUnit extends StatelessWidget {
     final waterPreparingURLs = Provider.of<List<WaterSectionPreparingModel>>(context);
     final dwellingPreparingURLs = Provider.of<List<DwellingSectionPreparing>>(context);
     final sandPreparingURLs = Provider.of<List<SandSectionPreparing>>(context);
+    final audibleFeaturesURLs = Provider.of<List<AudibleFeaturesModel>>(context);
 
+    final preparingclassesURLs = Provider.of<List<PreparingClassesModel>>(context);
+    final variousmeansURLs = Provider.of<List<VariousMeansModel>>(context);
+    final eventsSctionURLs = Provider.of<List<EventsSection>>(context);
 
     if (title == "Welcome Section" && parent == "preparation")
     sectionUrls = welcomePreparingURLs;
+    else if (title == "Preparing classes" && parent == "TeachingAids")
+    sectionUrls = preparingclassesURLs;
+    else if (title == "Various means" && parent == "TeachingAids")
+    sectionUrls = variousmeansURLs;
     else if (title == "Friends section" && parent == "preparation")
     sectionUrls = friendsPreparingURLs;
     else if (title == "Family section" && parent == "preparation")
@@ -93,30 +86,16 @@ class SubEducationUnit extends StatelessWidget {
     else if (title ==  "Sand section" && parent == "preparation")
     sectionUrls = sandPreparingURLs; 
 
-    if (title == "Welcome Section" && parent == "LastMeeting")
-    sectionUrls = welcomeLastURLs;
-    else if (title == "Friends section" && parent == "LastMeeting")
-    sectionUrls = friendsLastURLs;
-    else if (title == "Family section" && parent == "LastMeeting")
-    sectionUrls = familyLastURLs;
-    else if (title == "Hands section" && parent == "LastMeeting")
-    sectionUrls = handsLastURLs;
-    else if (title == "Kids clothes section" && parent == "LastMeeting")
-    sectionUrls = kidsClothesLastURLs;
-    else if (title == "Kids book" && parent == "LastMeeting")
-    sectionUrls = kidsBooksLastURLs;
-    else if (title == "National section" && parent == "LastMeeting")
-    sectionUrls = nationalLastURLs;
-    else if (title == "Food section" && parent == "LastMeeting")
-    sectionUrls = foodLastURLs;
-    else if (title == "health & safety" && parent == "LastMeeting")
-    sectionUrls = healthLastURLs;   
-    else if (title == "Water section" && parent == "LastMeeting")
-    sectionUrls = waterLastURLs; 
-    else if (title == "Dwelling section" && parent == "LastMeeting")
-    sectionUrls = dwellingLastURLs;   
-    else if (title ==  "Sand section" && parent == "LastMeeting")
-    sectionUrls = sandLastURLs; 
+
+    if (title == "Games" && parent == "LastMeeting")
+    sectionUrls = gamesLastURLs;
+    else if (title == "Finger games" && parent == "LastMeeting")
+    sectionUrls = fingerGamesLastURLs;
+    else if (title == "Chants" && parent == "LastMeeting")
+    sectionUrls = chantsLastURLs;
+    else if (title == "Stories" && parent == "LastMeeting")
+    sectionUrls = storiesLastURLs;
+
 
 
     if (title == "Welcome Section" && parent == "EducationUnit")
@@ -145,14 +124,12 @@ class SubEducationUnit extends StatelessWidget {
     sectionUrls = sandURLs;   
 
 
-    else if (title == "Audible features")
-    sectionUrls = audibleFeaturesURLs;    
-    else if (title == "Mission")
-    sectionUrls = missionURLs;  
-    else if (title == "Vision")
-    sectionUrls = visionURLs;    
+    else if (title == "File processing")
+    sectionUrls = audibleFeaturesURLs;     
     else if (title == "Quran and biography")
     sectionUrls = quranURLs;
+    else if (title == "Events")
+    sectionUrls = eventsSctionURLs;
 
   
     return Scaffold(

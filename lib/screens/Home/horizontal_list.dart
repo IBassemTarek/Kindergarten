@@ -7,7 +7,8 @@ class HorizontalList extends StatelessWidget {
   final List listOfData;
   final List listOfPdfs;
   final bool navigation;
-  HorizontalList({required this.listOfData,required this.navigation,required this.listOfPdfs});
+  final bool whatsApp;
+  HorizontalList({required this.whatsApp,required this.listOfData,required this.navigation,required this.listOfPdfs});
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -32,6 +33,7 @@ class HorizontalList extends StatelessWidget {
          duration: 1000,
          widget:
          PdfScreen(
+           whatsApp: whatsApp,
            source: listOfPdfs[i].source,
            pdfDriveUrl: listOfPdfs[i].url,
            title: Locales.currentLocale(context).toString() == "en"?listOfPdfs[i].title:listOfPdfs[i].titleA,),
