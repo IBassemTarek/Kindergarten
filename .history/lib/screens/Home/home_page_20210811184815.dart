@@ -7,7 +7,7 @@ import 'package:kindergarten/screens/DrawerScreen/page_have_drawer.dart';
 import 'package:kindergarten/screens/Home/welcome_section.dart';
 import 'package:kindergarten/screens/commonWidget/app_bar.dart';
 import 'package:kindergarten/screens/shared/info_unit.dart';
-import 'package:kindergarten/screens/teachingAids/teachingAids.dart';
+import 'package:kindergarten/teachingAids/teachingAids.dart';
 import 'package:provider/provider.dart'; 
 
 import '../../settings.dart';
