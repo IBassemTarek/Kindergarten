@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:kindergarten/screens/shared/custom_text_form.dart'; 
+import 'package:flutter_locales/flutter_locales.dart';
+import 'package:kindergarten/screens/shared/custom_text_form.dart';
 
-class   InputField extends StatelessWidget {
-  final String lable; 
-   final String hint; 
-  InputField({  required this.hint, required this.lable});
+import 'text_field_lables.dart';
+
+class InputField extends StatelessWidget {
+  final TextFieldLables data;
+
+  InputField({required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +22,31 @@ class   InputField extends StatelessWidget {
         direction: Axis.vertical,
         children: [
           Container(
-            width:  _width * 0.89,
-            child: Wrap( 
+            width: _width * 0.89,
+            child: Wrap(
               direction: Axis.horizontal,
               alignment: WrapAlignment.spaceBetween,
               children: [
-                Text(lable,
-                    style:Theme.of(context).textTheme.headline2?.copyWith(fontSize: 21)), 
+                Locales?.currentLocale(context).toString() == "ar"
+                    ? Text(
+                        data.lableA,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline2
+                            ?.copyWith(fontSize: 16),
+                      )
+                    : Text(data.lable,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline2
+                            ?.copyWith(fontSize: 21)),
               ],
             ),
           ),
           Container(
             width: _width * 0.9,
             child: CustomTextFormField(
-              lable: hint,
-              title: lable,
+              data: data,
             ),
           )
         ],
@@ -41,5 +54,3 @@ class   InputField extends StatelessWidget {
     );
   }
 }
-
-

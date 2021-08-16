@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 
 import '../../settings.dart';
 
@@ -17,7 +18,7 @@ class OrLine extends StatelessWidget {
           child: Divider(
             color: kColor1,
           )),
-        Text('Or',style:Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14,color: kColor1)),
+        LocaleText('Or',style:Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14,color: kColor1)),
         Container(
           width: 0.38*_width,
           child: Divider(

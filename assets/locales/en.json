@@ -50,5 +50,15 @@
     "Stories": "Stories" ,
     "Preparing classes":"Preparing classes",
     "Various means":"Various means",
-    "Events":"Events"
+    "Events":"Events",
+    "Welcome back":"Welcome back",
+    "subLogin":"Fill your Email and Password or continue with social media",
+    "subRegister":"Fill your identity or continue with social media",
+    "Create Account":"Create Account",
+    "SignUp":"SignUp",
+    "login":"login",
+    "Or":"Or",
+    "Don't have an account? ":"Don't have an account? ",
+    "Have an account? ":"Have an account? ",
+    "Skip Now":"Skip Now"
 }

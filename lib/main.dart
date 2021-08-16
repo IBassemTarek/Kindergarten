@@ -65,13 +65,12 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: lastStreams +
           preparingStreams +
-         
           [
-                        StreamProvider<List<VariousMeansModel>>.value(
+            StreamProvider<List<VariousMeansModel>>.value(
               value: VariousMeansServices().variousMeansData,
               initialData: [],
             ),
-                        StreamProvider<List<PreparingClassesModel>>.value(
+            StreamProvider<List<PreparingClassesModel>>.value(
               value: PreparingClassesServices().preparingClassesData,
               initialData: [],
             ),

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 import 'package:kindergarten/models/AuthData/auth_data.dart';
 import 'package:kindergarten/models/drawer_scalling.dart';
 import 'package:kindergarten/models/modalprogrsshub.dart';
@@ -18,9 +19,11 @@ import '../../settings.dart';
 import '../AuthUI/text_field_lables.dart';
 import 'data_entry.dart';
 import 'header.dart';
+import 'lang_switcher.dart';
 import 'or_line.dart';
 import 'other_auth_method.dart';
 import 'sign_method_change.dart';
+import 'skip_now.dart';
 
 class SignIn extends StatelessWidget {
   final GlobalKey<FormState> _globalKey = new GlobalKey<FormState>();
@@ -28,11 +31,14 @@ class SignIn extends StatelessWidget {
   final _auth = AuthService();
   static List<TextFieldLables> loginTextFieldLables = [
     TextFieldLables(
-      lable: "Email",
-      hint: "Example@gmail.com",
-    ),
+        lable: "Email",
+        hint: "Example@gmail.com",
+        hintA: "Example@gmail.com",
+        lableA: "البريد الإليكتروني"),
     TextFieldLables(
       lable: "Password",
+      lableA: "كلمة المرور",
+      hintA: "أدخل كلمة المرور",
       hint: "Enter your password",
     ),
   ];
@@ -42,7 +48,7 @@ class SignIn extends StatelessWidget {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
     return Directionality(
-    textDirection: TextDirection.ltr,  
+      textDirection: TextDirection.ltr,
       child: Scaffold(
           key: _scaffoldKey,
           body: ModalProgressHUD(
@@ -72,12 +78,26 @@ class SignIn extends StatelessWidget {
                             runSpacing: 0.029 * _height,
                             runAlignment: WrapAlignment.spaceBetween,
                             children: [
-                              Header(
-                                title: "Welcome back",
-                                subtitle:
-                                    "Fill your Email and Password or continue with social media",
+                              Directionality(
+                                textDirection: Locales?.currentLocale(context)
+                                            .toString() ==
+                                        "ar"
+                                    ? TextDirection.rtl
+                                    : TextDirection.ltr,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Header(
+                                      title: "Welcome back",
+                                      subtitle: "subLogin",
+                                    ),
+                                    LangSwitcher(),
+                                  ],
+                                ),
                               ),
-                              DataEntry(loginTextFieldLables: loginTextFieldLables),
+                              DataEntry(
+                                  loginTextFieldLables: loginTextFieldLables),
                               Container(
                                 alignment: Alignment.bottomRight,
                                 height: 0.030134 * _height,
@@ -112,7 +132,8 @@ class SignIn extends StatelessWidget {
                                             OnBoardingPageRoute(
                                                 duration: 1000,
                                                 widget: Wrapper(),
-                                                myAnimation: Curves.elasticInOut),
+                                                myAnimation:
+                                                    Curves.elasticInOut),
                                           );
                                         } on FirebaseAuthException catch (e) {
                                           ScaffoldMessenger.of(context)
@@ -123,7 +144,8 @@ class SignIn extends StatelessWidget {
                                       },
                                     ),
                                     OtherAuthMethod(
-                                      imageURL: "assets/images/signin/google.svg",
+                                      imageURL:
+                                          "assets/images/signin/google.svg",
                                       ontap: () async {
                                         try {
                                           User user =
@@ -137,7 +159,8 @@ class SignIn extends StatelessWidget {
                                             OnBoardingPageRoute(
                                                 duration: 1000,
                                                 widget: Wrapper(),
-                                                myAnimation: Curves.elasticInOut),
+                                                myAnimation:
+                                                    Curves.elasticInOut),
                                           );
                                         } on FirebaseAuthException catch (e) {
                                           ScaffoldMessenger.of(context)
@@ -150,7 +173,6 @@ class SignIn extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                      
                               Wrap(
                                 children: [
                                   Center(
@@ -158,42 +180,9 @@ class SignIn extends StatelessWidget {
                                       currentWidget: "Sign In",
                                     ),
                                   ),
-                              Center(
-                                child: OutlinedButton (
-                                    onPressed: (){
-                                      Navigator.pushReplacement(
-                                        context,
-                                        OnBoardingPageRoute(
-                                            duration: 1000,
-                                            widget: MultiProvider(
-                            providers: [ 
-                              StreamProvider<UserModel>.value(
-                                value: AuthService().user,
-                                initialData: UserModel(id:""),
-                              ),
-                      StreamProvider<UserData>.value(
-                            value: ProfileDataBaseServices().initchildData(),
-                             initialData: UserData(name: 'Name'),
-                             ),
-                      
-                                    ChangeNotifierProvider<DrawerScalling>(
-                                create: (context) => DrawerScalling(),
-                              )
-                              ],
-                                              child: MyHomePage()),
-                                            myAnimation: Curves.elasticInOut),
-                                      );
-                                    },
-                                  child: Text("Skip Now",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline2
-                                          ?.copyWith(color: kColor2, fontSize: 14)),
-                                ),
-                              ),
+                                  SkipNow(),
                                 ],
                               ),
-                      
                             ],
                           ),
                         ),
